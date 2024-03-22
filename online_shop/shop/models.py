@@ -1,5 +1,5 @@
 from django.db import models
-from users.models import CustomUser  
+from accounts.models import CustomUser  
 
 
 class Author(models.Model):
@@ -10,20 +10,19 @@ class Author(models.Model):
 
 class Book(models.Model):
     book_id = models.AutoField(primary_key=True)
-    # Foreign keys
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)  
+    # Required fields
     author_name = models.ForeignKey(Author, on_delete=models.CASCADE)
-    
-    # Other fields
     title = models.CharField(max_length=100)
-    category = models.CharField(max_length=100)  
-    quantity = models.IntegerField(default=1)
-    publisher = models.CharField(max_length=100)
-    publish_date = models.DateField()
-    rating = models.IntegerField()
-    availability = models.BooleanField()
-    price = models.DecimalField(max_digits=10, decimal_places=2)
+    # Other fields (nullable and blank)
+    category = models.CharField(max_length=100, null=True,blank=True)
+    quantity = models.IntegerField(default=1, blank=True)
+    publisher = models.CharField(max_length=100, blank=True)
+    publish_date = models.DateField(null=True, blank=True)
+    rating = models.DecimalField(max_digits=3, decimal_places=1, null=True, blank=True)
+    availability = models.BooleanField(default=True, blank=True)
+    price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     picture = models.ImageField(upload_to='book_pictures/', blank=True, null=True)
+
 
 class Payment(models.Model):
     payment_id = models.AutoField(primary_key=True)
