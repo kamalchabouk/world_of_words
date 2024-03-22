@@ -1,5 +1,5 @@
 from django.db import models
-from users.models import CustomUser  
+from accounts.models import CustomUser  
 
 
 class Author(models.Model):
@@ -10,8 +10,6 @@ class Author(models.Model):
 
 class Book(models.Model):
     book_id = models.AutoField(primary_key=True)
-    # Foreign key (nullable and blank)
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True, blank=True)
     # Required fields
     author_name = models.ForeignKey(Author, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
