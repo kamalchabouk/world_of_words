@@ -1,0 +1,18 @@
+<!-- cart.html -->
+{% extends 'base.html' %}
+
+{% block title %}Shopping Cart{% endblock %}
+
+{% block content %}
+    <h2>Shopping Cart</h2>
+    <ul>
+        {% for cart_item in cart_items %}
+                <tr>
+                    <td>{{ cart_item.book.title }}</td>
+                    <td>{{ cart_item.quantity }}</td>
+                    <td>${{ cart_item.item_total }}</td>
+                </tr>
+        {% endfor %}
+    </ul>
+    <p>Total Price: ${{ total_price }}</p>
+{% endblock %}

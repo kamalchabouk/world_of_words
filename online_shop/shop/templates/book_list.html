@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>All Books</h2>
+  <ul>
+    {% for book in all_books %}
+      <li>{{ book.title }}</li>
+    {% endfor %}
+  </ul>
+
+  <h2>Featured Books</h2>
+  <ul>
+    {% for book in books %}
+      <li>{{ book.title }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
