@@ -9,7 +9,8 @@ class CustomUser(AbstractUser):
     address = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=20)
     age = models.PositiveIntegerField()
-    order_history = models.ManyToManyField('Order', blank=True)
-    shopping_cart = models.ManyToManyField('Product', blank=True)
-    wishlist = models.ManyToManyField('Product', blank=True)
+    order_history = models.ManyToManyField('shop.Order', blank=True, related_name='custom_user_orders')
+    shopping_cart = models.ManyToManyField('shop.Book', blank=True, related_name='custom_user_cart')
+    wishlist = models.ManyToManyField('shop.Book', blank=True, related_name='custom_user_wishlist')
+
 

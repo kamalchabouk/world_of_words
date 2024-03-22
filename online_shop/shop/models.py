@@ -1,5 +1,5 @@
 from django.db import models
-from user.models import CustomUser  
+from users.models import CustomUser  
 
 
 class Author(models.Model):
