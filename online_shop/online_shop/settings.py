@@ -146,3 +146,4 @@ TLS = True
 
 LOGOUT_REDIRECT_URL = "/"
 LOGIN_REDIRECT_URL = "/"
+AUTH_USER_MODEL = 'users.CustomUser'

@@ -3,7 +3,7 @@ from .views import BookListView, BookDetailPageView, add_to_cart, remove_from_ca
 
 urlpatterns = [
     path('books/', BookListView.as_view(), name='book_list'),
-    path('book/<int:pk>/', BookDetailPageView, name='book_detail'),
+    path('book/<int:pk>/', BookDetailPageView.as_view(), name='book_detail'),
     path('add_to_wishlist/<int:book_id>/', add_to_wishlist, name='add_to_wishlist'),
     path('remove_from_wishlist/<int:book_id>/', remove_from_wishlist, name='remove_from_wishlist'),
     path('wishlist/', wishlist, name='wishlist'),
