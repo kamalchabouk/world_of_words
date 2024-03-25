@@ -8,8 +8,9 @@ from django.http import JsonResponse
 
 class BookListView(View):
     def get(self, request):
-        products = Book.objects.all()  # Fetch all products from the database
-        return render(request, 'book_list.html', {'products': products})
+        all_books = Book.objects.all()  # Fetch all books from the database
+        #featured_books = Book.objects.filter(featured=True)  # Assuming you have a field named 'featured'
+        return render(request, 'book_list.html', {'all_books': all_books})#'featured_books': featured_books})
 
 def add_to_wishlist(request, book_id):
     book = get_object_or_404(Book, id=book_id)
