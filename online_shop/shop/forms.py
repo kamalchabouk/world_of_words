@@ -1,13 +1,12 @@
 from django import forms
 from django.utils import timezone
-from .models import Order
+from .models import Order, Book, Author
 
 class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
-        fields = ['book', 'author', 'order_date', 'payment_type', 'order_status', 'address', 'quantity', 'delivery_date']
+        fields = ['book', 'author', 'payment_type', 'address', 'quantity', 'delivery_date']
         widgets = {
-            'order_date': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
             'delivery_date': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
             'address': forms.TextInput(attrs={'readonly': 'readonly'})  # Make the address field read-only
         }
@@ -26,3 +25,9 @@ class OrderForm(forms.ModelForm):
             order_date = self.initial['order_date']
             default_delivery_date = order_date + timezone.timedelta(days=7)
             self.fields['delivery_date'].initial = default_delivery_date
+
+        # Prepopulate the book and author fields with initial data
+        if 'book' in self.initial:
+            self.fields['book'].queryset = Book.objects.filter(pk=self.initial['book'].pk)
+        if 'author' in self.initial:
+            self.fields['author'].queryset = Author.objects.filter(pk=self.initial['author'].pk)

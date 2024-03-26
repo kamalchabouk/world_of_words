@@ -1,17 +1,31 @@
-{% extends 'base.html' %}
-
 {% block content %}
   <h2>All Books</h2>
-  <ul>
+  <div class="row">
     {% for book in all_books %}
-      <li>{{ book.title }}</li>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="{{ book.image.url }}" class="card-img-top" alt="{{ book.title }}">
+          <div class="card-body">
+            <h5 class="card-title"><a href="{% url 'shop:book_detail' book.pk %}">{{ book.title }}</a></h5>
+            <p class="card-text">Author: {{ book.author }}</p>
+          </div>
+        </div>
+      </div>
     {% endfor %}
-  </ul>
+  </div>
 
   <h2>Featured Books</h2>
-  <ul>
+  <div class="row">
     {% for book in books %}
-      <li>{{ book.title }}</li>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="{{ book.image.url }}" class="card-img-top" alt="{{ book.title }}">
+          <div class="card-body">
+            <h5 class="card-title"><a href="{% url 'shop:book_detail' book.pk %}">{{ book.title }}</a></h5>
+            <p class="card-text">Author: {{ book.author }}</p>
+          </div>
+        </div>
+      </div>
     {% endfor %}
-  </ul>
+  </div>
 {% endblock %}

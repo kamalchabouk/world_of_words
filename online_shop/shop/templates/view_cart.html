@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Shopping Cart{% endblock %}
+
+{% block content %}
+    <h2>Shopping Cart</h2>
+
+    {% if cart_items %}
+    <form method="post" action="{% url 'shop:empty_cart' %}">
+        {% csrf_token %}
+        <button type="submit">Empty Cart</button>
+    </form>
+
+    <form method="post" id="order-form" action="{% url 'shop:order_view' %}">
+        {% csrf_token %}
+        <ul>
+            {% for cart_item in cart_items %}
+                <li>
+                    {{ cart_item.title }} - 
+                    {% if cart_item.author %}
+                        Author: {{ cart_item.author }} - 
+                    {% endif %}
+                    Quantity: {{ cart_item.quantity }} - Price: ${{ cart_item.item_total }}
+                    <form action="{% url 'shop:remove_from_cart' %}" method="post" style="display: inline-block">
+                        {% csrf_token %}
+                        <input type="hidden" name="book_id" value="{{ cart_item.pk }}">
+                        <button type="submit">Remove</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+        {% if total_price %}
+        <p>Total Price: {{ total_price }}</p> 
+        {% endif %}
+        <button type="submit">Order Books</button>
+    </form>
+    
+    {% else %}
+    <p>Your cart is empty.</p>
+    {% endif %}
+{% endblock %}

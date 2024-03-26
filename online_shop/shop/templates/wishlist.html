@@ -5,9 +5,16 @@
 
 {% block content %}
     <h2>My Wishlist</h2>
-    <ul>
-        {% for book in wishlist_books %}
-            <li>{{ book.title }} by {{ book.author }}</li>
-        {% endfor %}
-    </ul>
+    <form method="post" id="add-to-cart-form">
+        {% csrf_token %}
+        <ul>
+            {% for book in wishlist_books %}
+                <li>
+                    <input type="checkbox" name="books_to_add[]" value="{{ book.id }}">
+                    {{ book.title }} by {{ book.author }}
+                </li>
+            {% endfor %}
+        </ul>
+        <button type="submit">Add Selected to Cart</button>
+    </form>
 {% endblock %}
