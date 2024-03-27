@@ -1,5 +1,7 @@
 from django.urls import path
 from .views import BookListView, BookDetailPageView, add_to_cart, remove_from_cart, view_cart, empty_cart, order_confirmation, wishlist, add_to_wishlist, remove_from_wishlist, OrderView
+from django.conf import settings
+from django.conf.urls.static import static
 
 app_name = 'shop' 
 
@@ -16,3 +18,8 @@ urlpatterns = [
     path('order/', OrderView.as_view(), name='order_view'),
     path('thank_you/', order_confirmation, name='thank_you'),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

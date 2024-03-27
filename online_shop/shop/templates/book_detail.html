@@ -2,14 +2,16 @@
 
 {% block content %}
  <div class="col-md-6">
-    <img src="{{ book.image.url }}" class="img-fluid" alt="{{ book.title }}">
-</div>
-<div class="col-md-6">
+  <img src="{{ book.picture.url }}" class="img-fluid" alt="{{ book.title }}"><div class="col-md-6">
     <h2>{{ book.title }}</h2>
     <p>Author: {{ book.author.name }}</p>
     <p>Price: ${{ book.price }}</p>
+    <p>Language: {{ book.language }}</p>
+    <p>Pages: {{ book.pages }}</p>
+    <p>Publishing Year: {{ book.year }}</p>
+    <p>Genre: {{ book.genre }}</p>
     <p>Availability: {% if book.availability %}In Stock{% else %}Out of Stock{% endif %}</p>
-    
+
     <form method="post" action="{% url 'shop:add_to_cart' book.pk %}">
         {% csrf_token %}
         <button type="submit" class="btn btn-primary">Add to Cart</button>
@@ -24,13 +26,7 @@
 </div>
 
 
-    <div class="row mt-4">
-      <div class="col">
-        <h3>Description</h3>
-        <p>{{ book.description }}</p>
-      </div>
-    </div>
-  </div>
+    
 
   
 

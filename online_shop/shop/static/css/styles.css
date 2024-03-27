@@ -1,23 +1,26 @@
-html{
+html {
     height: 100%;
     font-family: sans-serif;
 }
 
-body{  /* Background Settings Main Site  
-    background: linear-gradient( to bottom, transparent,rgb(48, 46, 46));  */
+body {
+    /* Background Settings Main Site */
+    /* background: linear-gradient( to bottom, transparent,rgb(48, 46, 46)); */
     background-image: url('/static/images/background.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
-    align-items: center;                 
+    align-items: center;
     justify-content: center;
     height: 100vh;
+    color: white;
 }
 
-form{  /* Login Form Details */
+form {
+    /* Login Form Details */
     background-color: rgb(153, 137, 137);
-    opacity: 0.8;                   /* Transparent setting */
+    opacity: 0.8; /* Transparent setting */
     border-radius: 5%;
     padding: 2rem;
     font-weight: 700;
@@ -26,7 +29,7 @@ form{  /* Login Form Details */
     width: 300px;
 }
 
-form input,              
+form input,
 form select,
 form textarea {
     width: 100%;
@@ -38,7 +41,8 @@ form textarea {
     padding: 1em;
 }
 
-form button{
+form button,
+.remove-item { /* Applying the same styling to the .remove-item class */
     display: block;
     width: 100%;
     padding: 15px;
@@ -51,7 +55,8 @@ form button{
     transition: background-color 0.3s ease-in;
 }
 
-form button:hover{
+form button:hover,
+.remove-item:hover { /* Applying the same hover effect */
     background: #03e9f4;
     color: #fff;
     border-radius: 5px;
@@ -62,12 +67,12 @@ form button:hover{
     animation: btn-anim1 1s linear infinite;
 }
 
-form .errorlist li{
+form .errorlist li {
     list-style-type: none;
     color: rgb(216, 6, 17);
 }
 
-@media  screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
     form {
         width: 90%;
     }
@@ -75,12 +80,13 @@ form .errorlist li{
 
 @keyframes button {
     0% {
-      bottom: -100%;
+        bottom: -100%;
     }
     50%,100% {
-      bottom: 100%;
+        bottom: 100%;
     }
-  
+}
+    
 /* 
   animation: btn-anim4 1s linear infinite;
   animation-delay: .75s */

@@ -2,40 +2,69 @@
 
 {% block title %}Shopping Cart{% endblock %}
 
+
+
 {% block content %}
     <h2>Shopping Cart</h2>
 
-    {% if cart_items %}
-    <form method="post" action="{% url 'shop:empty_cart' %}">
-        {% csrf_token %}
-        <button type="submit">Empty Cart</button>
-    </form>
+    <!-- {% if cart_items %}
+        <form method="post" action="{% url 'shop:empty_cart' %}">
+            {% csrf_token %}
+            <button type="submit">Empty Cart</button>
+        </form>  -->
 
-    <form method="post" id="order-form" action="{% url 'shop:order_view' %}">
-        {% csrf_token %}
         <ul>
             {% for cart_item in cart_items %}
-                <li>
-                    {{ cart_item.title }} - 
-                    {% if cart_item.author %}
-                        Author: {{ cart_item.author }} - 
-                    {% endif %}
-                    Quantity: {{ cart_item.quantity }} - Price: ${{ cart_item.item_total }}
-                    <form action="{% url 'shop:remove_from_cart' %}" method="post" style="display: inline-block">
-                        {% csrf_token %}
-                        <input type="hidden" name="book_id" value="{{ cart_item.pk }}">
-                        <button type="submit">Remove</button>
-                    </form>
-                </li>
+            <li>
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="{{ MEDIA_URL }}images/{{ cart_item.book.picture }}" class="img-fluid" alt="{{ cart_item.book.title }}">
+                    </div>
+                    <div class="col-md-9">
+                        Title: {{ cart_item.title }} - Author: {{ cart_item.author }} 
+                        <input type="hidden" name="author_id_{{ cart_item.pk }}" value="{{ cart_item.book.author.pk }}">  Quantity: {{ cart_item.quantity }} - Price: ${{ cart_item.item_total }}
+                        <form method="post" action="{% url 'shop:remove_from_cart' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="book_id" value="{{ cart_item.pk }}">
+                            <button type="submit" class="btn btn-primary">Remove</button>
+                        </form>
+                    </div>
+                </div>
+            </li>
             {% endfor %}
         </ul>
+
         {% if total_price %}
-        <p>Total Price: {{ total_price }}</p> 
+            <p>Total Price: {{ total_price }}</p>
         {% endif %}
-        <button type="submit">Order Books</button>
-    </form>
-    
+
+        <form id="order-form" action="{% url 'shop:order_view' %}" method="post">
+            {% csrf_token %}
+            {{ order_form.as_p }}
+            <button type="submit">Place Order</button>
+        </form>
+        
+        
+
     {% else %}
-    <p>Your cart is empty.</p>
+        <p>Your cart is empty.</p>
     {% endif %}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const removeButtons = document.querySelectorAll('.remove-item');
+
+            removeButtons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    const bookId = this.getAttribute('data-book-id');
+                    const removeInput = document.createElement('input');
+                    removeInput.setAttribute('type', 'hidden');
+                    removeInput.setAttribute('name', 'remove_from_cart');
+                    removeInput.setAttribute('value', bookId);
+                    document.getElementById('order-form').appendChild(removeInput);
+                    this.closest('li').remove();
+                });
+            });
+        });
+    </script>
 {% endblock %}
