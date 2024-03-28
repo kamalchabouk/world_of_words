@@ -67,6 +67,11 @@ form .errorlist li{
     color: rgb(216, 6, 17);
 }
 
+.resized-image {
+    width: 100px;
+    height: 75px;   
+}  
+
 @media  screen and (max-width: 600px) {
     form {
         width: 90%;
@@ -80,6 +85,7 @@ form .errorlist li{
     50%,100% {
       bottom: 100%;
     }
+
   
 /* 
   animation: btn-anim4 1s linear infinite;

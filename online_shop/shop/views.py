@@ -30,6 +30,32 @@ def wishlist(request):
     wishlist_books = request.user.wishlist.all()
     return render(request, 'wishlist.html', {'wishlist_books': wishlist_books})  
 
+def add_selected_to_cart(request):
+    if request.method == 'POST':
+        book_ids = request.POST.getlist('books_to_add[]')
+
+        if not book_ids:
+            return HttpResponse('No books selected', status=400)
+
+        cart = request.session.get('cart', {})
+
+        for book_id in book_ids:
+            book = get_object_or_404(Book, pk=book_id)
+            cart_item = cart.get(str(book_id))
+
+            if cart_item:
+                cart_item['quantity'] += 1
+            else:
+                cart_item = {'quantity': 1, 'price': str(book.price)}  # Ensure price is a string
+            cart[str(book_id)] = cart_item
+
+            # Remove the book from the wishlist
+            request.user.wishlist.remove(book)
+
+        request.session['cart'] = cart
+        return redirect('shop:view_cart')
+    else:
+        return HttpResponse('Method not allowed', status=405)
 
 
 def empty_cart(request):
@@ -42,6 +68,12 @@ def empty_cart(request):
 def add_to_cart(request, book_id):
     book = get_object_or_404(Book, pk=book_id)
     cart = request.session.get('cart', {})
+
+    # Check if the book is in the wishlist
+    if book in request.user.wishlist.all():
+        # Remove the book from the wishlist
+        request.user.wishlist.remove(book)
+
     cart_item = cart.get(str(book_id))
     if cart_item:
         cart_item['quantity'] += 1
@@ -236,7 +268,7 @@ class OrderView(View):
                 pass 
 
             for book_id, item in cart.items():
-                #book = get_object_or_404(Book, pk=int(book_id))
+                book = get_object_or_404(Book, pk=int(book_id))
                 author_id = request.POST.get(f'author_pk_{book_id}')
                 payment = Payment.objects.create(
                     order=order,

@@ -7,10 +7,12 @@ from .views import index, registration_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("accounts/register/" ,registration_view, name='register'),
     path('accounts/', include("django.contrib.auth.urls")),
     path("", index, name="index"),
-    path("accounts/register/" ,registration_view, name='register'),
     path('shop/', include("shop.urls"))
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

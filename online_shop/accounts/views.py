@@ -12,6 +12,10 @@ class RegistrationForm(UserCreationForm):
         model=CustomUser
         fields = ["username", "email", "password1", "password2"]
 
+# class CustomUserCreationForm(UserCreationForm):
+#     class Meta:
+#         model=CustomUser
+#         fields = ("username", "email", "password1", "password2")
 
 def  registration_view(request):
     if request.method == "POST":

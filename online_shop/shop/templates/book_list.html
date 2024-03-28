@@ -4,7 +4,7 @@
     {% for book in all_books %}
       <div class="col-md-4 mb-4">
         <div class="card">
-          <img src="{{ book.image.url }}" class="card-img-top" alt="{{ book.title }}">
+          <img src="{{ book.picture.url }}" class="card-img-top resized-image" alt="{{ book.title }}">
           <div class="card-body">
             <h5 class="card-title"><a href="{% url 'shop:book_detail' book.pk %}">{{ book.title }}</a></h5>
             <p class="card-text">Author: {{ book.author }}</p>
@@ -19,7 +19,7 @@
     {% for book in books %}
       <div class="col-md-4 mb-4">
         <div class="card">
-          <img src="{{ book.image.url }}" class="card-img-top" alt="{{ book.title }}">
+          <img src="{{ book.picture.url }}" class="card-img-top" alt="{{ book.title }}">
           <div class="card-body">
             <h5 class="card-title"><a href="{% url 'shop:book_detail' book.pk %}">{{ book.title }}</a></h5>
             <p class="card-text">Author: {{ book.author }}</p>
