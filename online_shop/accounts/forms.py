@@ -1,5 +1,5 @@
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
-from .models import CustomUser, Comment, Rate
+from .models import CustomUser
 from django import forms
 
 
@@ -21,13 +21,6 @@ class CustomUserChangeForm(UserChangeForm):
         self.fields['username'].help_text = None  # Remove help text for the username field
 
 
-class CommentForm(forms.ModelForm):
-    class Meta:
-        model = Comment
-        fields = ['comment']
 
 
-class RateForm(forms.ModelForm):
-    class Meta:
-        model = Rate
-        fields = ['rating']
+

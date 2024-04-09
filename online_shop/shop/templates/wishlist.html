@@ -1,13 +1,20 @@
-<!-- wishlist.html -->
 {% extends 'base.html' %}
 
 {% block title %}My Wishlist{% endblock %}
 
 {% block content %}
     <h2>My Wishlist</h2>
-    <ul>
-        {% for book in wishlist_books %}
-            <li>{{ book.title }} by {{ book.author }}</li>
-        {% endfor %}
-    </ul>
+    <form method="post" action="{% url 'shop:add_selected_to_cart' %}" id="add-to-cart-form">
+        {% csrf_token %}
+        <ul>
+            {% for book in wishlist_books %}
+                <li>
+                    <input type="checkbox" name="books_to_add[]" value="{{ book.pk }}">
+                    {{ book.title }} by {{ book.author }}
+                    <p>Price: ${{ book.price }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+        <button type="submit">Add Selected to Cart</button>
+    </form>
 {% endblock %}
