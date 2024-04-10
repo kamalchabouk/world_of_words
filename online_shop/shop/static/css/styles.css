@@ -111,6 +111,15 @@ form .errorlist li {
     justify-content: center;
 }
 
+.contact-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.contact-list li {
+    margin-bottom: 10px;
+}
+
 .contact-link {
     color: #007bff; /* Blue color for links */
     text-decoration: none; /* Remove underline */

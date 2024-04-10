@@ -20,7 +20,7 @@ class Book(models.Model):
     pages = models.IntegerField(default=0)  
     year = models.IntegerField(default=0)   
     genre = models.CharField(max_length=100, null=True, blank=True)
-    quantity = models.IntegerField(default=1, blank=True)
+    quantity = models.IntegerField(default=80, blank=True)
     availability = models.BooleanField(default=True, blank=True)
     language = models.CharField(max_length=50, default='English')  
     price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
@@ -39,8 +39,8 @@ class Payment(models.Model):
 class Order(models.Model):
     order_id = models.AutoField(primary_key=True)
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    book = models.ForeignKey('Book', on_delete=models.CASCADE)
-    author = models.ForeignKey('Author', on_delete=models.CASCADE)
+    book = models.ForeignKey('Book', on_delete=models.CASCADE, default=1)
+    #author = models.ForeignKey('Author', on_delete=models.CASCADE)
     order_date = models.DateTimeField(auto_now_add=True)
     payment_type = models.CharField(max_length=100)
     order_status = models.CharField(max_length=100)
@@ -48,6 +48,10 @@ class Order(models.Model):
     quantity = models.PositiveIntegerField()
     delivery_date = models.DateTimeField(null=True, blank=True)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
+    paypal_address = models.EmailField(max_length=255, blank=True, null=True)
+    bank_name = models.CharField(max_length=100, blank=True, null=True)
+    account_number = models.CharField(max_length=50, blank=True, null=True)
+    iban = models.CharField(max_length=50, blank=True, null=True)
 
 class OrderItem(models.Model):
     id = models.AutoField(primary_key=True)

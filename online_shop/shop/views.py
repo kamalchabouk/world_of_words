@@ -121,9 +121,10 @@ def remove_from_cart(request, book_id):
         book_id = request.POST.get('book_id')
         cart = request.session.get('cart', {})
 
-        if book_id and book_id in cart:
-            del cart[book_id]
-
+        if book_id:
+            cart = request.session.get('cart', {})
+            if book_id in cart:
+                del cart[book_id]
             # Recalculate total price after removing the item
             total_price = 0
             for item_id, item_data in cart.items():
@@ -138,32 +139,35 @@ def remove_from_cart(request, book_id):
 
     return HttpResponseNotFound('Invalid request')
 
-
 @login_required
 def view_cart(request):
     cart = request.session.get("cart", {})
     cart_items = []
-    total_price = 0  # Initialize total_price here
+    total_price = 0
 
+    if not cart:
+        messages.error(request, "Your cart is empty. Please add items to your cart before checkout.")
+        return redirect('shop:book_list')
+
+    # Process cart items and calculate total price
     for book_id, item in cart.items():
         book = get_object_or_404(Book, pk=int(book_id))
         item_total = book.price * item["quantity"]
-        print(f"Book picture URL: {book.picture.url}")  # Debugging
-        cart_items.append(
-            {
-                "pk": book.pk,
-                "title": book.title,
-                "author": book.author,  # .name if book.author else "",  # Add author information
-                "author_pk": book.author.pk,
-                "price": str(book.price),
-                "availability": book.availability,
-                "quantity": item["quantity"],
-                "item_total": str(item_total),
-            }
-        )
-        total_price += item_total  # Update total_price for each item
+        cart_items.append({
+            "pk": book.pk,
+            "book_id": book_id,
+            "title": book.title,
+            "author": book.author,  # Assuming you have an author field
+            "author_pk": book.author.pk,  # Assuming author has a primary key
+            "price": str(book.price),
+            "availability": book.availability,
+            "quantity": item["quantity"],
+            "item_total": str(item_total),
+        })
+        total_price += item_total
 
-    order_form = OrderForm()  # Create OrderForm instance
+    # Consider passing cart items for pre-populating the order form (optional)
+    order_form = OrderForm(cart_items=cart_items)
 
     return render(
         request,
@@ -200,6 +204,10 @@ class OrderView(View):
         cart_items = []
         total_price = 0
 
+        if not cart:
+            messages.error(request, "Your cart is empty. Please add items to your cart before checkout.")
+            return redirect('shop:books')
+
         for book_id, item in cart.items():
             book = get_object_or_404(Book, pk=int(book_id))
             item_total = book.price * item['quantity']
@@ -208,18 +216,25 @@ class OrderView(View):
 
         order_form = OrderForm(cart_items=cart_items)
         context = {'cart_items': cart_items, 'total_price': total_price, 'order_form': order_form}
-        return render(request, 'thank_you.html', context)
-
+        return render(request, 'view_cart.html', context)
     
+    @transaction.atomic
     def post(self, request):
-        cart = request.session.get('cart', {})
-        order_form = OrderForm(request.POST)
+        print("Code is working fine here")
 
+        cart = request.session.get('cart', {})
+        if not cart:
+            messages.error(request, "Your cart is empty. Please add items to your cart before checkout.")
+            return redirect('shop:view_cart')
+
+        order_form = OrderForm(request.POST, cart_items=cart)
+        orders = []
         if order_form.is_valid():
             total_quantity = 0
             total_price = 0
             orders = []
-
+            payments = []
+            print("Code is also fine here")
             for book_id, item in cart.items():
                 book = get_object_or_404(Book, pk=int(book_id))
                 total_quantity += item['quantity']
@@ -228,30 +243,35 @@ class OrderView(View):
                 order = Order(
                     user=request.user,
                     book=book,
-                    author=book.author,
                     order_date=timezone.now(),
                     payment_type=order_form.cleaned_data.get('payment_type'),
                     order_status='Pending',
                     address=order_form.cleaned_data.get('address'),
                     quantity=item['quantity'],
-                    amount=item['quantity'] * book.price
+                    amount=item['quantity'] * book.price,
+                    paypal_address=order_form.cleaned_data.get('paypal_address'),
+                    bank_name=order_form.cleaned_data.get('bank_name'),
+                    account_number=order_form.cleaned_data.get('account_number'),
+                    iban=order_form.cleaned_data.get('iban')
                 )
-                orders.append(order)
+                order.save()
 
-            Order.objects.bulk_create(orders)
-
-            for order in orders:
-                book = order.book
-                payment = Payment.objects.create(
+                payment = Payment(
                     order=order,
                     user=request.user,
                     book=book,
-                    quantity=order.quantity,
-                    amount=order.amount,
+                    quantity=item['quantity'],
+                    amount=item['quantity'] * book.price,
                     payment_type=order.payment_type,
-                    status='Pending',
+                    status='Pending'
                 )
+                payment.save()
+                payments.append(payment)
 
+            for order in orders:
+                print("Code is also fine in for oder in orders loop")
+
+                book = order.book
                 quantity = order.quantity
                 book.quantity -= quantity
                 if book.quantity <= 0:
@@ -259,12 +279,18 @@ class OrderView(View):
                         book.delete()
                     except Exception as e:
                         print(f"Error deleting book: {e}")
+                        messages.error(request, f"Error deleting book: {e}")
                 else:
+                    print("Code is reaching here")
                     book.save()
+                    print(f"Book '{book.title}' quantity after saving: {book.quantity}")
+                orders.append(order)
 
             del request.session['cart']
+            print("Cart data removed from session.")  # Properly indented here
             return redirect('shop:thank_you')
         else:
+            print("Form is not valid:", order_form.errors)  # Debugging
             cart_items = []
             total_price = 0
 
@@ -276,7 +302,7 @@ class OrderView(View):
 
             context = {'cart_items': cart_items, 'total_price': total_price, 'order_form': order_form}
             return render(request, 'view_cart.html', context)
-
+    
 def order_confirmation(request):
     return render(request, "thank_you.html")
 
@@ -300,7 +326,7 @@ def contactdetails(request, contact_id):
     if response.status_code == 200:
         contact_details = (
             response.json()
-        )  # Assuming API returns a single contact object
+        )  #  returns a single contact object
         return render(
             request, "contactdetails.html", {"contact_details": contact_details}
         )
