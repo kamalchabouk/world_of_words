@@ -15,30 +15,31 @@
 
         <ul>
             {% for cart_item in cart_items %}
-            <li>
-                <div class="row">
-                    <div class="col-md-3">
-                        <img src="{{ MEDIA_URL }}images/{{ cart_item.book.picture }}" class="img-fluid" alt="{{ cart_item.book.title }}">
-                    </div>
-                    <div class="col-md-9">
-                        Title: {{ cart_item.title }} - Author: {{ cart_item.author }} 
-                        <input type="hidden" name="author_id_{{ cart_item.pk }}" value="{{ cart_item.book.author.pk }}">  Quantity: {{ cart_item.quantity }} - Price: ${{ cart_item.item_total }}
-                        <form method="post" action="{% url 'shop:remove_from_cart' %}">
-                            {% csrf_token %}
-                            <input type="hidden" name="book_id" value="{{ cart_item.pk }}">
-                            <button type="submit" class="btn btn-primary">Remove</button>
-                        </form>
-                    </div>
-                </div>
-            </li>
-            {% endfor %}
+    <li>
+        <div class="row">
+            <div class="col-md-3">
+                <img src="{{ MEDIA_URL }}images/{{ cart_item.book.picture }}" class="img-fluid" alt="{{ cart_item.book.title }}">
+            </div>
+            <div class="col-md-9">
+                Title: {{ cart_item.title }} - Author: {{ cart_item.author }} 
+                <input type="hidden" name="author_id_{{ cart_item.pk }}" value="{{ cart_item.book.author.pk }}">  
+                Quantity: {{ cart_item.quantity }} - Price: ${{ cart_item.item_total }}
+                <form method="post" action="{% url 'shop:remove_from_cart' cart_item.pk %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="book_id" value="{{ cart_item.pk }}">
+                    <button type="submit" class="btn btn-primary">Remove</button>
+                </form>
+            </div>
+        </div>
+    </li>
+{% endfor %}
         </ul>
 
         {% if total_price %}
             <p>Total Price: {{ total_price }}</p>
         {% endif %}
 
-        <form id="order-form" action="{% url 'shop:order_view' %}" method="post">
+        <form id="order-form" action="{% url 'shop:checkout' %}" method="post">
             {% csrf_token %}
             {{ order_form.as_p }}
             <button type="submit">Place Order</button>

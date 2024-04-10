@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404
 from models import Book, Author
-from users.models import CustomUser
+from accounts.models import CustomUser
 
 
 books_data = [

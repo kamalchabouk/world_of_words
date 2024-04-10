@@ -4,17 +4,21 @@
 
 {% block content %}
     <h2>My Wishlist</h2>
-    <form method="post" action="{% url 'shop:add_selected_to_cart' %}" id="add-to-cart-form">
-        {% csrf_token %}
-        <ul>
-            {% for book in wishlist_books %}
-                <li>
-                    <input type="checkbox" name="books_to_add[]" value="{{ book.pk }}">
-                    {{ book.title }} by {{ book.author }}
-                    <p>Price: ${{ book.price }}</p>
-                </li>
-            {% endfor %}
-        </ul>
-        <button type="submit">Add Selected to Cart</button>
-    </form>
+    <ul>
+        {% for wishlist_book in wishlist_books %}
+            <li>
+                <img src="{{ wishlist_book.picture.url }}" alt="{{ wishlist_book.title }}" class="wishlist-book-image">
+                <p>Title: {{ wishlist_book.title }} - Author: {{ wishlist_book.author }}</p>
+                <p>Price: ${{ wishlist_book.price }}</p>
+                <form method="post" action="{% url 'shop:remove_from_wishlist' wishlist_book.pk %}">
+                    {% csrf_token %}
+                    <button type="submit">Remove from Wishlist</button>
+                </form>
+                <form method="post" action="{% url 'shop:add_to_cart' wishlist_book.pk %}">
+                    {% csrf_token %}
+                    <button type="submit">Add to Cart</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
 {% endblock %}

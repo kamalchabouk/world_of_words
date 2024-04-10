@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<body>
+    <h1>Contact List</h1>
+    <p>Please click on the name for more info</p>
+    <ul class="contact-list">
+    
+        {% for contact in contacts %}
+            <li>
+                <a href="{% url 'shop:contact_details' contact.id %}">{{ contact.first_name }} {{ contact.last_name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+{% endblock %}

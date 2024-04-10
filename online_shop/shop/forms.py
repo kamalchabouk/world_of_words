@@ -13,21 +13,20 @@ class OrderForm(forms.ModelForm):
         fields = ['payment_type', 'address']
 
     def __init__(self, *args, **kwargs):
-        user = kwargs.pop('user', None)  # Get user from kwargs
-        cart_items = kwargs.pop('cart_items', None)  # Get cart items from kwargs
+        user = kwargs.pop('user', None)
+        cart_items = kwargs.pop('cart_items', None)
         super(OrderForm, self).__init__(*args, **kwargs)
 
         if user:
-            self.fields['address'].initial = user.address  # Pre-fill address
+            self.fields['address'].initial = user.address
 
-        # Dynamically add form fields for each book and author in the cart
         if cart_items:
             for index, cart_item in enumerate(cart_items):
+                book = cart_item['book']
+                author = book.author
                 # Add hidden fields for book and author
-                book = Book.objects.get(pk=cart_item['book_id'])
-                author = Author.objects.get(pk=cart_item['author_id'])
                 self.fields[f'book_{index}'] = forms.CharField(initial=book.title, widget=forms.HiddenInput())
-                self.fields[f'author_{index}'] = forms.CharField(initial=author.name, widget=forms.HiddenInput())
+                self.fields[f'author_{index}'] = forms.CharField(initial=author.pk, widget=forms.HiddenInput())  # Use author.pk for the author_id
 
     def clean(self):
         cleaned_data = super().clean()
