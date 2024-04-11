@@ -16,6 +16,10 @@
           Welcome, {{ user.username }}!
           <li><a href="{% url 'accounts:my_profile' %}">My profile</a></li>
           <li><a href="{% url 'accounts:edit_profile' %}">Edit profile</a></li>
+          <li><a href="{% url 'forms:add_new_book' %}">add new book</a></li>
+          <li><a href="{% url 'pwned:check_email' %}">Check if Your Email Has Been Pwned</a></li>
+
+
       </ul>
   </nav>
 
