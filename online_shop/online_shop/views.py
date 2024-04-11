@@ -5,6 +5,7 @@ from django import forms
 from django import forms
 from django.shortcuts import redirect, render
 
+
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField(required=True)
 
@@ -28,4 +29,4 @@ def  registration_view(request):
 
 def index(request):
     return render(request,"index.html")
-        
+

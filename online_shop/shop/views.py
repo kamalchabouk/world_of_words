@@ -146,8 +146,8 @@ def view_cart(request):
     total_price = 0
 
     if not cart:
-        messages.error(request, "Your cart is empty. Please add items to your cart before checkout.")
-        return redirect('shop:book_list')
+        messages.info(request, "Your cart is empty.")
+        #return redirect('shop:book_list')
 
     # Process cart items and calculate total price
     for book_id, item in cart.items():
@@ -329,6 +329,48 @@ def contactdetails(request, contact_id):
     else:
         # Handle unsuccessful API request or contact not found
         return render(request, "contactdetails.html", {"contact_details": None})
+    
+
+def genres(request):
+    api_url = "http://127.0.0.1:5000/api/genres/"
+    response = requests.get(api_url)
+
+    if response.status_code == 200:
+        genres = response.json()  # access JSON data
+        return render(request, "genres.html", {"genres": genres})
+    else:
+        # Handle unsuccessful API request
+        return render(request, "genres.html", {"genres": []})
+
+
+def genredetails(request, genre_id):
+    api_url = f"http://127.0.0.1:5000/api/genres/{genre_id}/"
+    response = requests.get(api_url)
+
+    if response.status_code == 200:
+        genre_details = (
+            response.json()
+        )  #  returns a single genre object
+        return render(
+            request, "genredetails.html", {"genre_details": genre_details}
+        )
+    else:
+        # Handle unsuccessful API request or contact not found
+        return render(request, "genredetails.html", {"genre_details": None})
+
+def shop_home(request):
+    return render(request, 'home.html')
+
+def shop_genres(request):
+    return render(request, 'genres.html')
+
+class BookAsListView(View):
+    def get(self, request):
+        all_books = Book.objects.all()  # Fetch all books from the database
+        # featured_books = Book.objects.filter(featured=True)  # Assuming you have a field named 'featured'
+        return render(
+            request, "books_as_list.html", {"all_books": all_books}
+        )  #'featured_books': featured_books})
 
 
 # def search_books(request):

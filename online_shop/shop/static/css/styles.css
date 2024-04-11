@@ -5,10 +5,10 @@ html {
 
 body {
     /* Background Settings Main Site */
-    background-image: url('/static/images/background.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    background-color: grey;
     height: 100vh; /* Set the height of the body to 100% of the viewport height */
     color: white;
     position: relative;
@@ -110,6 +110,16 @@ form .errorlist li {
     align-items: center;
     justify-content: center;
 }
+.contact-list a {
+    color: #007bff; /* Set link color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Make text bold */
+    transition: color 0.3s ease-in; /* Smooth transition effect for color change */
+}
+
+.contact-list a:hover {
+    color: #0056b3; /* Change link color on hover */
+}
 
 .contact-list {
     list-style-type: none;
@@ -134,7 +144,7 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1000; /* Ensure the navbar stays on top of other content */
+    z-index: 1; /* Ensure the navbar stays on top of other content */
     background-color: #333; /* Dark background color */
 }
 
@@ -168,7 +178,9 @@ nav ul {
     max-height: 200px; /* Adjust the maximum height as needed */
   }
 
+.distance {
+    margin-top: 14700px; /* Adjust the value based on the height of your navbar */
+}
 /* 
   animation: btn-anim4 1s linear infinite;
   animation-delay: .75s */
-

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<body>
+    <h1>Genre Details</h1>
+    {% if genre_details %}
+        <h2>{{ genre_details.name }}</h2>
+        {% if genre_details.description %}
+        <p>{{ genre_details.description }}</p>
+    {% else %}
+        <p>Description not found</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
+{% endblock %}

@@ -13,13 +13,19 @@
   <div class="container">
     <nav>
       <ul>
-        <li><a href="{% url 'login' %}">Login</a></li>
-        <li><a href="{% url 'logout' %}">Logout</a></li>
-        <li><a href="{% url 'register' %}">Sign up</a></li>
-        <li><a href="{% url 'shop:book_list' %}">Books</a></li>
+        <li><a href="{% url 'shop:home' %}">Home</a></li>
+        <li><a href="{% url 'shop:book_list' %}">Featured Books</a></li>
+        <li><a href="{% url 'shop:books_as_list' %}">All Books</a></li>
         <li><a href="{% url 'shop:wishlist' %}">Wishlist</a></li>
         <li><a href="{% url 'shop:view_cart' %}">Shopping Cart</a></li>
         <li><a href="{% url 'shop:contact' %}">Contact</a></li>
+        <li><a href="{% url 'shop:genres' %}">Genres</a></li>
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+        {% else %}
+        <li><a href="{% url 'login' %}">Login</a></li>
+        <li><a href="{% url 'register' %}">Sign up</a></li>
+        {% endif %}
       </ul>
     </nav>
     <div class="content"> 
