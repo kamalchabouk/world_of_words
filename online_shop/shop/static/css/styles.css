@@ -130,7 +130,13 @@ form .errorlist li {
     text-decoration: underline; /* Add underline on hover */
 }
 
-
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure the navbar stays on top of other content */
+    background-color: #333; /* Dark background color */
+}
 
 nav ul {
     list-style-type: none;

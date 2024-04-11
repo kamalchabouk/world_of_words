@@ -220,7 +220,6 @@ class OrderView(View):
     
     @transaction.atomic
     def post(self, request):
-        print("Code is working fine here")
 
         cart = request.session.get('cart', {})
         if not cart:
@@ -234,7 +233,6 @@ class OrderView(View):
             total_price = 0
             orders = []
             payments = []
-            print("Code is also fine here")
             for book_id, item in cart.items():
                 book = get_object_or_404(Book, pk=int(book_id))
                 total_quantity += item['quantity']
@@ -255,6 +253,8 @@ class OrderView(View):
                     iban=order_form.cleaned_data.get('iban')
                 )
                 order.save()
+                orders.append(order)
+
 
                 payment = Payment(
                     order=order,
@@ -267,9 +267,8 @@ class OrderView(View):
                 )
                 payment.save()
                 payments.append(payment)
-
+                
             for order in orders:
-                print("Code is also fine in for oder in orders loop")
 
                 book = order.book
                 quantity = order.quantity
@@ -281,13 +280,10 @@ class OrderView(View):
                         print(f"Error deleting book: {e}")
                         messages.error(request, f"Error deleting book: {e}")
                 else:
-                    print("Code is reaching here")
                     book.save()
-                    print(f"Book '{book.title}' quantity after saving: {book.quantity}")
-                orders.append(order)
 
             del request.session['cart']
-            print("Cart data removed from session.")  # Properly indented here
+            print  
             return redirect('shop:thank_you')
         else:
             print("Form is not valid:", order_form.errors)  # Debugging
