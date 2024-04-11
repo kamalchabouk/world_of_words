@@ -111,7 +111,7 @@ form .errorlist li {
     justify-content: center;
 }
 .contact-list a {
-    color: #007bff; /* Set link color */
+    color: #78387a; /* Set link color */
     text-decoration: none; /* Remove underline */
     font-weight: bold; /* Make text bold */
     transition: color 0.3s ease-in; /* Smooth transition effect for color change */
@@ -121,7 +121,20 @@ form .errorlist li {
     color: #0056b3; /* Change link color on hover */
 }
 
-.contact-list {
+
+.genre-list a {
+    color: #78387a; /* Set link color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Make text bold */
+    transition: color 0.3s ease-in; /* Smooth transition effect for color change */
+}
+
+.genre-list a:hover {
+    color: #0056b3; /* Change link color on hover */
+}
+
+.contact-list
+{
     list-style-type: none;
     padding: 0;
 }
@@ -131,13 +144,14 @@ form .errorlist li {
 }
 
 .contact-link {
-    color: #007bff; /* Blue color for links */
+    color: #d400ff; /* Blue color for links */
     text-decoration: none; /* Remove underline */
     font-weight: bold; /* Make text bold */
 }
 
 .contact-link:hover {
     text-decoration: underline; /* Add underline on hover */
+    color: blue;
 }
 
 nav {

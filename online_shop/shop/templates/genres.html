@@ -8,9 +8,9 @@
 <h3>Click on a genre to find out more.</h3>
 <ul class="genre-list">
     {% for genre in genres %}
-        <li>
+        <ul>
             <a href="{% url 'shop:genre_details' genre.id %}">{{ genre.name }}</a>
-        </li>
+        </ul>
     {% endfor %}
 </ul>
 

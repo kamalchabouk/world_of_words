@@ -1,23 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="distance">
+<div class="distance" style="margin-top: 14700px; padding-top: 14700px;">
     <h2>All Books</h2>
     <p>Click on the title for more info.</p>
 
     <div class="row">
         {% for book in all_books %}
         <div class="col-md-4 mb-4">
-        <div class="card">
-        <img src="{{ book.picture.url }}" class="wishlist-book-image" alt="{{ book.title }}">
-        <div class="card-body">
-        <h5 class="card-title">Title: <a href="{% url 'shop:book_detail' book.pk %}">{{ book.title }}</a></h5>
-        <p class="card-text">Author: {{ book.author }}</p>
-        </div>
-        </div>
+            <div class="card">
+                <img src="{{ book.picture.url }}" class="wishlist-book-image" alt="{{ book.title }}">
+                <div class="card-body">
+                    <h5 class="card-title">Title: <a href="{% url 'shop:book_detail' book.pk %}">{{ book.title }}</a></h5>
+                    <p class="card-text">Author: {{ book.author }}</p>
+                </div>
+            </div>
         </div>
         {% endfor %}
-        </div>
     </div>
 </div>
 {% endblock %}
