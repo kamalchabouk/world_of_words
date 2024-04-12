@@ -1,6 +1,6 @@
 from .models import CustomUser
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django import forms
 from django import forms
 from django.shortcuts import redirect, render
@@ -29,6 +29,10 @@ def  registration_view(request):
 
     return render(request, "registration/register.html", {"form" : form})
 
+
+def logout_view(request):
+    logout(request)
+    return redirect('shop:home')
 
 def index(request):
     return render(request,"index.html")

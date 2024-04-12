@@ -8,13 +8,19 @@ body {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    background-color: grey;
+    background-color: rgb(128, 128, 128);
     height: 100vh; /* Set the height of the body to 100% of the viewport height */
     color: white;
     position: relative;
     margin: 0; /* Remove default margin */
     padding: 0; /* Remove default padding */
 }
+
+.background-image {
+    background-image: url('/static/images/background.jpg');
+    background-size: cover;
+}
+
 .overlay {
     position: absolute;
     top: 0;
@@ -132,6 +138,18 @@ form .errorlist li {
 .genre-list a:hover {
     color: #0056b3; /* Change link color on hover */
 }
+
+.home-link a {
+    color: #78387a; /* Set link color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Make text bold */
+    transition: color 0.3s ease-in; /* Smooth transition effect for color change */
+}
+
+.home-link a:hover {
+    color: #0056b3; /* Change link color on hover */
+}
+
 
 .contact-list
 {

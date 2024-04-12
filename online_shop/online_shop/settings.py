@@ -15,9 +15,9 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, '')
 # Static files (CSS, JavaScript, images)
-STATIC_URL = '/static/'
+STATIC_URL = 'shop/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
+    BASE_DIR / "shop/static",
 ]
 
 
@@ -156,6 +156,6 @@ EMAIL_SUBJECT_PREFIX = "Password Recovery"
 EMAIL_TIMEOUT = 100
 TLS = True
 
-LOGOUT_REDIRECT_URL = "shop:home/"
-LOGIN_REDIRECT_URL = "shop:home/"
+LOGOUT_REDIRECT_URL = "/shop/home/"
+LOGIN_REDIRECT_URL = "/shop/home/"
 AUTH_USER_MODEL = 'accounts.CustomUser'

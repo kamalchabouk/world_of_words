@@ -53,8 +53,8 @@ class Order(models.Model):
     account_number = models.CharField(max_length=50, blank=True, null=True)
     iban = models.CharField(max_length=50, blank=True, null=True)
 
-class OrderItem(models.Model):
-    id = models.AutoField(primary_key=True)
-    order = models.ForeignKey(Order, on_delete=models.CASCADE)
-    book = models.ForeignKey(Book, on_delete=models.CASCADE)
-    quantity = models.PositiveIntegerField()
+# class OrderItem(models.Model):
+#     id = models.AutoField(primary_key=True)
+#     order = models.ForeignKey(Order, on_delete=models.CASCADE)
+#     book = models.ForeignKey(Book, on_delete=models.CASCADE)
+#     quantity = models.PositiveIntegerField()

@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 <title>Our Book Shop</title>
-<body>
+<body class="background-image">
 <div class="article"> 
 <h2>Our Book Shop</h2>
 <h3>Welcome to our book shop.</h3>
 <h3>Please click on the link below to see our featured books.</h3>
 
-<ul style="list-style-type: none; padding: 0;">
+<ul style="list-style-type: none; padding: 0;" class="home-link">
     <li>
-        <a href="{% url 'shop:book_list' %}" class="btn btn-primary">Our featured books</a>
+        <a href="{% url 'shop:book_list' %}">Our featured books</a>
     </li>
 </ul>
 </div> 
