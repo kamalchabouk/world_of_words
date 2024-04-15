@@ -21,13 +21,18 @@
         <li><a href="{% url 'shop:contact' %}">Contact</a></li>
         <li><a href="{% url 'shop:genres' %}">Genres</a></li>
         {% if user.is_authenticated %}
-        <li><a href="{% url 'logout' %}">Logout</a></li>
+        <li><a href="{% url 'accounts:my_profile' %}">My profile</a></li>
+
+        <li><a href="{% url 'filters:filter' %}">Filter</a></li>
+
+        <a href="{% url 'logout' %}" class="btn btn-primary">Logout</a>
         {% else %}
         <li><a href="{% url 'login' %}">Login</a></li>
-        <li><a href="{% url 'register' %}">Sign up</a></li>
+        <li><a href="{% url 'accounts:register' %}">Sign up</a></li>
         {% endif %}
       </ul>
     </nav>
+    
     <div class="content"> 
       {% block content %} {% endblock %}
     </div>

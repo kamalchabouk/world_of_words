@@ -16,9 +16,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '')
 # Static files (CSS, JavaScript, images)
 STATIC_URL = 'shop/static/'
-STATICFILES_DIRS = [
-    BASE_DIR / "shop/static",
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "shop/static")]
 
 
 # Quick-start development settings - unsuitable for production
@@ -42,8 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "crispy_forms",
+    "crispy_bootstrap5",
     'shop.apps.ShopConfig',
     'accounts.apps.AccountsConfig',
+    'forms.apps.FormsConfig',
+    'filter.apps.FilterConfig',
 ]
 
 MIDDLEWARE = [
@@ -61,7 +63,7 @@ ROOT_URLCONF = 'online_shop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -156,6 +158,8 @@ EMAIL_SUBJECT_PREFIX = "Password Recovery"
 EMAIL_TIMEOUT = 100
 TLS = True
 
-LOGOUT_REDIRECT_URL = "/shop/home/"
-LOGIN_REDIRECT_URL = "/shop/home/"
+LOGOUT_REDIRECT_URL = "accounts:index"
+LOGIN_REDIRECT_URL = "accounts:index"
 AUTH_USER_MODEL = 'accounts.CustomUser'
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+<section class="details-section">
+    <h1>My profile</h1>
+
+
+<div class="profile-info">
+    <p><strong>Username:</strong> {{ profile.username }}</p>
+    <p><strong>Email:</strong> {{ profile.email }}</p>
+    <p><strong>Name:</strong> {{ profile.name }}</p>
+    <p><strong>Last Name:</strong> {{ profile.last_name }}</p>
+    <p><strong>Address:</strong> {{ profile.address }}</p>
+    <p><strong>Phone Number:</strong> {{ profile.phone_number }}</p>
+
+    <li><a href="{% url 'accounts:edit_profile' %}">Edit profile</a></li>
+    <li><a href="{% url 'accounts:change_password' %}">Change Password</a></li>
+   
+</div>
+</section>
+{% endblock %}

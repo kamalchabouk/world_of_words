@@ -9,13 +9,14 @@ from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("accounts/register/" ,registration_view, name='register'),
+    path("", include("accounts.urls")),
     path('accounts/', include("django.contrib.auth.urls")),
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-    path("", index, name="index"),
-    path('shop/', include("shop.urls"))
+    path('shop/', include("shop.urls")),
+    path('forms/', include("forms.urls")),
+    path('filter/',include("filter.urls")),
+    
 ]
-#urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
