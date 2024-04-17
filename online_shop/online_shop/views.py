@@ -1,5 +1,6 @@
 from accounts.models import CustomUser
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django import forms
 from django import forms
@@ -27,6 +28,10 @@ def  registration_view(request):
     return render(request, "registration/register.html", {"form" : form})
 
 
+class CustomLoginView(LoginView):
+    def get_success_url(self):
+        return '/shop/view-cart/'  
+    
 def index(request):
     return render(request,"index.html")
 

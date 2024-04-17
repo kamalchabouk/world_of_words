@@ -1,6 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Order Placed Successfully</h1>
-    <p>Thank you for your order! Your order has been placed successfully.</p>
+    <div class="order-info"> 
+        <h1>Order Placed Successfully</h1>
+        <p>Thank you for your order! Your order has been placed successfully.</p>
+        
+        <h2>Order Information:</h2>
+        <ul>
+            {% for order in user_orders %}
+                <li>Book: {{ order.book.title }}</li>
+                <li>Quantity: {{ order.quantity }}</li>
+                <li>Amount: ${{ order.amount }}</li>
+                <li>Address: {{ order.address }}</li>
+                <li>Payment Option: {{ order.payment_type }}</li>
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock %}
-

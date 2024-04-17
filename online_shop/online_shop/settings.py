@@ -155,7 +155,6 @@ DEFAULT_FROM_EMAIL = mail
 EMAIL_SUBJECT_PREFIX = "Password Recovery"
 EMAIL_TIMEOUT = 100
 TLS = True
-
 LOGOUT_REDIRECT_URL = "/shop/home/"
 LOGIN_REDIRECT_URL = "/shop/home/"
 AUTH_USER_MODEL = 'accounts.CustomUser'

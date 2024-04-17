@@ -91,3 +91,6 @@ form .errorlist li{
   animation: btn-anim4 1s linear infinite;
   animation-delay: .75s */
 }
+.content {
+    padding-top: 50px; /* Adjust this value to match the height of your navbar */
+}

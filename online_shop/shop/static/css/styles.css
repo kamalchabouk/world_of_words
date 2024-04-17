@@ -53,6 +53,42 @@ form textarea {
     border: none;
     padding: 1em;
 }
+.order-info {
+    position: fixed;
+    top: 70px; /* Adjust as needed to create padding from the navbar */
+    left: 50%;
+    transform: translateX(-50%);
+    max-height: calc(100vh - 100px); /* Adjust as needed based on the available viewport height */
+    overflow-y: auto;
+    background-color: #6e185c; /* Optional: Add a background color */
+    padding: 20px; /* Optional: Add padding for spacing */
+    z-index: 1000; /* Ensure it appears above other content */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for depth */
+}
+
+.order-content {
+    /* Ensure that the content inside the cart-container fills its available space */
+    height: 100%;
+}
+
+.cart-container {
+    position: fixed;
+    top: 70px; /* Adjust as needed to create padding from the navbar */
+    left: 50%;
+    transform: translateX(-50%);
+    max-height: calc(100vh - 100px); /* Adjust as needed based on the available viewport height */
+    overflow-y: auto;
+    background-color: #6e185c; /* Optional: Add a background color */
+    padding: 20px; /* Optional: Add padding for spacing */
+    z-index: 1000; /* Ensure it appears above other content */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for depth */
+}
+
+.cart-content {
+    /* Ensure that the content inside the cart-container fills its available space */
+    height: 100%;
+}
+
 
 form button,
 .remove-item { /* Applying the same styling to the .remove-item class */

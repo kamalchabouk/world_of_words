@@ -14,7 +14,7 @@ from django.utils import timezone
 import json
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-
+from django.contrib.auth import get_user_model
 
 class BookListView(View):
     def get(self, request):
@@ -90,6 +90,7 @@ def empty_cart(request):
 
 @login_required
 def add_to_cart(request, book_id):
+    User = get_user_model()
     book = get_object_or_404(Book, pk=book_id)
     cart = request.session.get("cart", {})
 
@@ -108,12 +109,17 @@ def add_to_cart(request, book_id):
         }  # Ensure price is a string
     cart[str(book_id)] = cart_item
     request.session["cart"] = cart
+
+    # Add the book to the user's shopping cart
+    user = request.user
+    user.shopping_cart.add(book)
+    user.save()
+
     next_page = request.GET.get("next", None)
     if next_page:
         return redirect(next_page)
     else:
         return redirect(reverse("shop:book_list"))
-
 
 @login_required
 def remove_from_cart(request, book_id):
@@ -178,7 +184,6 @@ def view_cart(request):
             "order_form": order_form,
         },
     )
-
 
 class BookDetailPageView(View):
     def get(self, request, book_id):
@@ -300,8 +305,13 @@ class OrderView(View):
             return render(request, 'view_cart.html', context)
     
 def order_confirmation(request):
-    return render(request, "thank_you.html")
+    # Retrieve the user's orders from the database
+    user_orders = Order.objects.filter(user=request.user)
 
+    context = {
+        'user_orders': user_orders
+    }
+    return render(request, "thank_you.html", context)
 
 def contacts(request):
     api_url = "http://127.0.0.1:5000/api/contacts/"

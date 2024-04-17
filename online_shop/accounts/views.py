@@ -30,6 +30,7 @@ def  registration_view(request):
     return render(request, "registration/register.html", {"form" : form})
 
 
+    
 def logout_view(request):
     logout(request)
     return redirect('shop:home')
