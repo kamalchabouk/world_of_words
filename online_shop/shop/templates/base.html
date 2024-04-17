@@ -24,7 +24,6 @@
         <li><a href="{% url 'shop:genres' %}">Genres</a></li>
         {% if user.is_authenticated %}
         <li><a href="{% url 'accounts:my_profile' %}">My profile</a></li>
-        <li><a href="{% url 'filters:filter' %}">Filter</a></li>
           {% if user.is_superuser %}
           <li><a href="{% url 'forms:add_new_book' %}">Add new Book</a></li>
 
@@ -36,13 +35,22 @@
         {% endif %}
       </ul>
     </nav>
-    
+
+
+
     <div class="content"> 
       {% block content %} {% endblock %}
+      {% block list %}{% endblock %}
     </div>
-    <div class="content1"> 
-      {% block content1 %} {% endblock %}
+      
     </div>
   </div>
+  
+  {% block footer %}{% endblock %}
+  <footer class="footer">
+      <div class="container"> 
+         <p class="copyright">&copy; 2024 Your Website Name. All Rights Reserved.</p>
+      </div>
+  </footer>
 </body>
 </html>

@@ -1,23 +1,52 @@
+HTML
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+<style>
+  /* Styles for the profile details section */
+  .details-section {
+    background-color: #111111;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  .profile-info {
+    font-family: 'Open Sans', sans-serif;  /* Example font family */
+    line-height: 1.5;
+  }
+
+  .profile-info h1 {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+
+  .profile-info p {
+    font-size: 1.2em;
+    font-weight: normal;
+  }
+</style>
 
 <section class="details-section">
     <h1>My profile</h1>
 
+  <div class="profile-info">
+    <p><strong>Username:</strong> {{ profile.username }}</p>
+    <p><strong>Email:</strong> {{ profile.email }}</p>
+    <p><strong>Name:</strong> {{ profile.name }}</p>
+    <p><strong>Last Name:</strong> {{ profile.last_name }}</p>
+    <p><strong>Address:</strong> {{ profile.address }}</p>
+    <p><strong>Phone Number:</strong> {{ profile.phone_number }}</p>
 
-<div class="profile-info">
-    <p class="card-text"><strong>Username:</strong> {{ profile.username }}</p>
-    <p class="card-text"><strong>Email:</strong> {{ profile.email }}</p>
-    <p class="card-text"><strong>Name:</strong> {{ profile.name }}</p>
-    <p class="card-text"><strong>Last Name:</strong> {{ profile.last_name }}</p>
-    <p class="card-text"><strong>Address:</strong> {{ profile.address }}</p>
-    <p class="card-text"><strong>Phone Number:</strong> {{ profile.phone_number }}</p>
-
-    <li><a href="{% url 'accounts:edit_profile' %}">Edit profile</a></li>
-    <li><a href="{% url 'accounts:change_password' %}">Change Password</a></li>
-   
-</div>
+    <form method="post" action="{% url 'accounts:edit_profile' %}">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-primary me-2">Edit profile</button>
+    </form>
+    <form method="post" action="{% url 'accounts:change_password' %}">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-primary me-2">Change Password</button>
+    </form>
+  </div>
 </section>
 {% endblock %}

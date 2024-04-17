@@ -4,19 +4,14 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-<head>
-    <meta charset="UTF-8" />
-    <link  rel="stylesheet" type="text/css" href="{% static 'css/styles.css'%}" />
-  </head>
-        <p><b>Welcome, {{ user.username }}. Thanks for logging in.</b></p>
-        {% csrf_token %}
-        <button type="submit">Log out</button>
-    </form>
-{%  else %}
-<form>
-    <p class="card-text">Welcome , new user. Please log in.</p>
+  <p class="card-text" style="font-size: larger;"><b>Welcome  {{ user.username }}!</b></p>
+  {% csrf_token %}
+  <button type="submit">Log out</button>
+{% else %}
+  <form>
+    <p class="card-text">Welcome, new user. Please log in.</p>
     <p><a href="{% url 'login' %}"><b> Log In </a>or <a href="{% url 'accounts:register'%}">Register</b></a></p>
-</form>
+  </form>
 {% endif %}
 
 

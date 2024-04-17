@@ -129,7 +129,7 @@ h4{
     color: #f0e7e7;
 }
 h5{
-    background-color: rgba(0, 0, 0, 0.616);
+    background-color: rgba(0, 0, 0, 0);
     position: center;
     background-position: 100%;
 
@@ -174,14 +174,7 @@ h6{
     align-items: center;
     justify-content: center;
 }
-.container1 {
-    width: 100%;
-    height: top;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
+
 .contact-list a {
     color: #78387a; /* Set link color */
     text-decoration: none; /* Remove underline */
@@ -200,9 +193,9 @@ h6{
     font-weight: bold; /* Make text bold */
     transition: color 0.3s ease-in; /* Smooth transition effect for color change */
 }
-.content1 {
+/* .content1 {
     padding-top: 6500px; /* Adjust this value to match the height of your navbar */
-}
+} */
 .genre-list a:hover {
     color: #0056b3; /* Change link color on hover */
 }
@@ -219,8 +212,9 @@ h6{
 }
 
 
-.contact-list
-{
+
+.contact-list{       
+    padding-top: 5000px; 
     list-style-type: none;
     padding: 0;
 }
@@ -284,3 +278,46 @@ nav ul {
 /* 
   animation: btn-anim4 1s linear infinite;
   animation-delay: .75s */
+.list-container {
+    background-color: #f9f9f96c;
+    padding: 20px;
+    padding-top: 6500px; 
+    text-align: center;
+    border-radius: 5px;
+}
+
+.list-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(105, 105, 105, 0.1);
+}
+
+.list-item h2 {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 5px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+.list-item p {
+    color: #666;
+    font-size: 14px;
+}
+.footer {
+    background-color: #080808;
+    padding-bottom: 100px;
+    padding: 10px;
+    text-align: center;
+    position:0;  /* Make the footer fixed to the bottom */
+    bottom: 0;  /* Position it at the bottom */
+    left: 0;  /* Span the full width */
+    width: 100%;
+  }
+  
+
+  
+.copyright {
+    margin-bottom: 10px;
+  }

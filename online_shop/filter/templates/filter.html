@@ -1,3 +1,4 @@
+
 {% extends 'base.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
@@ -6,23 +7,87 @@
 <html>
 <head>
   <title>Filter Results (Books)</title>
+  <style>
+    /* Styles for the filter section */
+    .filter-section {
+      margin-bottom: 20px;
+    }
+
+    .filter-section h1 {
+      margin-bottom: 10px;
+    }
+
+    /* Styles for the form */
+    form {
+      /* Remove flexbox properties */
+    }
+
+    form label {
+      display: inline-block; /* Display labels inline with form elements */
+      width: 120px; /* Adjust label width as needed */
+      margin-right: 5px; /* Add margin for spacing */
+    }
+
+
+
+    /* Styles for the results section */
+    .results-section {
+      border: 1px solid #000000;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      background-color:rgba(240, 248, 255, 0.932);
+      font-size: medium;
+      text-align: center;
+    }
+
+    .results-section h2 {
+      margin-bottom: 10px;
+    }
+
+    .results-list {
+      list-style:circle;
+      padding: 0;
+    }
+
+    .results-list li {
+      margin-bottom: 10px;
+    }
+
+    .results-list a {
+      text-decoration: none;
+      color: #000;
+    }
+
+    .results-list a:hover {
+      color: #ff0000;
+    }
+  </style>
 </head>
 <body>
-  <h1>Filter Results (Books)</h1>
-  <form method="get">
-    {{ form.as_p }}
-    <button type="submit">Filter</button>
-  </form>
+  <div class="filter-section">
+    <h1>Filter Results (Books)</h1>
+    <form method="get">
+      {{ form.as_p }}
+      <button type="submit">Filter</button>
+    </form>
+  </div>
 
   {% if items %}
-    <h2>Filtered Items</h2>
-    <ul>
-      {% for item in items %}
-        <li>
-          <a href="{% url 'shop:book_detail' item.pk %}">Title: {{ item.title }}</a> - Price : {{ item.price }} Author :(by {{ item.author }}) -  Language: {{ item.language }}-genre{{ item.genre }}
-        </li>
-      {% endfor %}
-    </ul>
+    <div class="results-section">
+      <h2>Search Result</h2>
+      <ul class="results-list">
+        {% for item in items %}
+          <li>
+            <a href="{% url 'shop:book_detail' item.pk %}">
+              Title: {{ item.title }} - Price : {{ item.price }} 
+              Author :(by {{ item.author }}) -  
+              Language: {{ item.language }}-genre{{ item.genre }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
   {% else %}
     <p class="card-text">No items found matching your criteria.</p>
   {% endif %}
