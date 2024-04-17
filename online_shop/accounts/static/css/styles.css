@@ -5,14 +5,95 @@ html{
 
 body{  /* Background Settings Main Site  
     background: linear-gradient( to bottom, transparent,rgb(48, 46, 46));  */
-    background-image: url('/static/images/background.jpg');
-    background-position: center;
-    background-size: cover;
+/*     background-image: url('/static/images/background.jpg');
+ */    background-position: center;
+    background-size:cover;
     background-repeat: no-repeat;
-    display: flex;
+    display: center;
     align-items: center;                 
     justify-content: center;
-    height: 100vh;
+}
+/* path => static/css/homepage.css */
+
+.navbar button {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  background-color: #1a1918; /* Change the background color */
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in;
+}
+
+.navbar button:hover {
+  background: #0e0d0d; /* Change the hover background color */
+  color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #FF8C00,
+              0 0 25px #FF8C00,
+              0 0 50px #FF8C00,
+              0 0 100px #FF8C00;
+  animation: btn-anim1 1s linear infinite;
+}
+
+.navbar {
+  position: fixed; /* Pushes the navbar to the top */
+  top: 0; /* Ensures the navbar sticks to the top */
+  width: 100%; /* Makes the navbar span the entire width */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 100px;
+  background-color: #0000006e;
+  color: rgb(231, 224, 224);
+}
+
+.navbar-left ul,
+.navbar-right ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navbar-left li,
+.navbar-right li {
+  margin: 0 10px;
+}
+
+.navbar-center {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.navbar-center form {
+  display: inline-block;
+}
+
+.navbar-right ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navbar-right li {
+  margin: 0 10px;
+}
+
+.navbar-right-logged-out ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-right-logged-out li {
+  margin: 0 10px;
 }
 
 form{  /* Login Form Details */

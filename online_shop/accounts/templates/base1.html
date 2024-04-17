@@ -8,12 +8,61 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link  rel="stylesheet" type="text/css" href="{% static 'css/styles.css'%}" />
   <meta name="description" content="" />
-
 </head>
-<body>
-    {% block content %} {% endblock %}
+<body>  
+  {% if user.is_authenticated %}
+  <nav class="navbar-right">
+      <ul>
+          Welcome, {{ user.username }}!
+          <li><a href="{% url 'accounts:my_profile' %}">My profile</a></li>
+          <li><a href="{% url 'accounts:edit_profile' %}">Edit profile</a></li>
+          <li><a href="{% url 'forms:add_new_book' %}">add new book</a></li>
+          <li><a href="{% url 'filters:filter' %}">Filter</a></li>
+          <li><a href="{% url 'accounts:change_password' %}">Change Password</a></li>
+          <a href="{% url 'logout' %}" class="btn btn-primary">Logout</a>
+
+
+
+
+
+      </ul>
+  </nav>
+
+
+  <nav class="navbar-right">
+      <ul>
+
+          <li><a href="{% url 'accounts:index' %}">Home</a></li>
+          <li><a href="{% url 'shop:book_list' %}">Books List</a></li>
+          <li>
+              <form method="post" action="{% url 'logout' %}">
+                  {% csrf_token %}
+                  <button type="submit" class="btn btn-primary">Log Out</button>
+              </form>
+          </li>
+
+          {% else %}
+          <div class="navbar-right-logged-out">
+              <ul>
+                  <li><a href="{% url 'login' %}">Log In</a></li>
+                  <li><a href="{% url 'accounts:register' %}">Sign Up</a></li>
+              </ul>
+          </div>
+          {% endif %}
+
+
+      </ul>
+  </nav>
+</header>
+
+{% block home %}{% endblock %}
+
+
+{% block list %}{% endblock %}
+{% block details %}{% endblock %}
+{% block content %}{% endblock content %}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
-
-

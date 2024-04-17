@@ -1,0 +1,12 @@
+-add to the navbar the edit profile  button
+-add logout  redirect page 
+-add search button
+-add not null  for books
+-add the edit profiel and change password to my profile link
+-admin login 
+-add admin account
+book details
+shopping cart
+books list
+add book
+add more blocks to the base page

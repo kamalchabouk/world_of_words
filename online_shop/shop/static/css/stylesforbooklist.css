@@ -1,0 +1,12 @@
+.distance {
+    margin-top: 20px;  /* Reduce margin-top */
+    padding-top: 10px;  /* Reduce padding-top */
+  }
+  
+  .card {
+    /* Add custom styles for cards like background color, border, etc. */
+  }
+  
+  .card-body {
+    /* Add custom styles for card body like text alignment, font size, etc. */
+  }

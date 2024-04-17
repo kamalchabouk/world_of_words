@@ -5,10 +5,12 @@ html {
 
 body {
     /* Background Settings Main Site */
+    background-image: url(../background.jpg);
+    background-attachment: fixed;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    background-color: rgb(128, 128, 128);
+    background-color: rgb(92, 92, 92);
     height: 100vh; /* Set the height of the body to 100% of the viewport height */
     color: white;
     position: relative;
@@ -17,8 +19,8 @@ body {
 }
 
 .background-image {
-    background-image: url('/static/images/background.jpg');
-    background-size: cover;
+/*     background-image: url(../background.jpg);
+ */    background-size: cover;
 }
 
 .overlay {
@@ -27,19 +29,19 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.7); /* Adjust opacity as needed */
+    background-color: rgba(100, 95, 95, 0.7); /* Adjust opacity as needed */
 }
 
 form {
     /* Login Form Details */
-    background-color: rgb(153, 137, 137);
+    background-color: rgb(7, 6, 6);
     opacity: 0.8; /* Transparent setting */
     border-radius: 5%;
-    padding: 2rem;
-    font-weight: 700;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    padding: 0.5rem;
+    font-weight: 900;
+    box-shadow: 0 0 10px rgba(153, 1, 1, 0.664);
     margin: 0 auto;
-    width: 300px;
+    width: 200px;
 }
 
 form input,
@@ -49,9 +51,9 @@ form textarea {
     margin-bottom: 10px;
     padding: 10px;
     box-sizing: border-box;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 5px rgba(145, 5, 5, 0.3);
     border: none;
-    padding: 1em;
+    padding: 0.2em;
 }
 .order-info {
     position: fixed;
@@ -94,11 +96,11 @@ form button,
 .remove-item { /* Applying the same styling to the .remove-item class */
     display: block;
     width: 100%;
-    padding: 15px;
+    padding: 4px;
     font-size: 16px;
-    background-color: rgb(0, 0, 8);
+    background-color: rgba(218, 91, 91, 0.788);
     border: none;
-    color: white;
+    color: rgb(34, 34, 34);
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease-in;
@@ -107,7 +109,7 @@ form button,
 form button:hover,
 .remove-item:hover { /* Applying the same hover effect */
     background: #03e9f4;
-    color: #fff;
+    color: #9e0a0a;
     border-radius: 5px;
     box-shadow: 0 0 5px #03e9f4,
                 0 0 25px #03e9f4,
@@ -134,7 +136,48 @@ form .errorlist li {
         width: 90%;
     }
 }
+h1{
+    background-color: rgba(0, 0, 0, 0.616);
+    color: #f0e7e7;
+    position: center;
+    background-position: 100%;
 
+}
+h2{
+    background-color: rgba(0, 0, 0, 0.616);
+    position: center;
+    background-position: 100%;
+
+    color: #f0e7e7;
+}
+h3{
+    background-color: rgba(0, 0, 0, 0.616);
+    position: center;
+    background-position: 100%;
+
+    color: #f0e7e7;
+}
+h4{
+    background-color: rgba(0, 0, 0, 0.616);
+    position: center;
+    background-position: 100%;
+
+    color: #f0e7e7;
+}
+h5{
+    background-color: rgba(0, 0, 0, 0.616);
+    position: center;
+    background-position: 100%;
+
+    color: #ada7a7;
+}
+h6{
+    background-color: rgba(0, 0, 0, 0.616);
+    background-position: 100%;
+    position: center;
+
+    color: #ada7a7;
+}
 @keyframes button {
     0% {
         bottom: -100%;
@@ -143,10 +186,33 @@ form .errorlist li {
         bottom: 100%;
     }
 }
-   
+.card img {
+    width: 100px;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    object-position:center;
+
+} 
+.card-text{
+    color: #f0e7e7;
+    background-color: rgba(0, 0, 0, 0.616);
+    position: center;
+    background-position: 100%;
+
+}
 .container {
     width: 100%;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.container1 {
+    width: 100%;
+    height: top;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -170,7 +236,9 @@ form .errorlist li {
     font-weight: bold; /* Make text bold */
     transition: color 0.3s ease-in; /* Smooth transition effect for color change */
 }
-
+.content1 {
+    padding-top: 6500px; /* Adjust this value to match the height of your navbar */
+}
 .genre-list a:hover {
     color: #0056b3; /* Change link color on hover */
 }
