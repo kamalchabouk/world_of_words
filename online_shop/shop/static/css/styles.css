@@ -62,7 +62,7 @@ form textarea {
     transform: translateX(-50%);
     max-height: calc(100vh - 100px); /* Adjust as needed based on the available viewport height */
     overflow-y: auto;
-    background-color: #6e185c; /* Optional: Add a background color */
+    background-color:#111111da; /* Optional: Add a background color */
     padding: 20px; /* Optional: Add padding for spacing */
     z-index: 1000; /* Ensure it appears above other content */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for depth */
@@ -80,10 +80,10 @@ form textarea {
     transform: translateX(-50%);
     max-height: calc(100vh - 100px); /* Adjust as needed based on the available viewport height */
     overflow-y: auto;
-    background-color: #6e185c; /* Optional: Add a background color */
+    background-color:#111111da; /* Optional: Add a background color */
     padding: 20px; /* Optional: Add padding for spacing */
     z-index: 1000; /* Ensure it appears above other content */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for depth */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.212); /* Optional: Add a shadow for depth */
 }
 
 .cart-content {
@@ -123,7 +123,33 @@ form .errorlist li {
     color: rgb(216, 6, 17);
 }
 
+.list-container {
+    background-color: #f9f9f96c;
+    padding: 20px;
+    padding-top: 6500px; 
 
+    border-radius: 5px;
+}
+
+.list-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(105, 105, 105, 0.1);
+}
+
+.list-item h2 {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 5px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+.list-item p {
+    color: #666;
+    font-size: 14px;
+}
 
 .resized-image {
     width: 100px;

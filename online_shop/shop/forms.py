@@ -8,6 +8,9 @@ class OrderForm(forms.ModelForm):
         ('banktransfer', 'Bank Transfer')
     ], widget=forms.RadioSelect)
 
+    # Hidden field for total quantity (passed from view)
+    total_quantity = forms.IntegerField(widget=forms.HiddenInput(), required=False)
+    
     class Meta:
         model = Order
         fields = ['payment_type', 'address', 'paypal_address', 'bank_name', 'account_number', 'iban']

@@ -5,14 +5,26 @@
         <p>Thank you for your order! Your order has been placed successfully.</p>
         
         <h2>Order Information:</h2>
-        <ul>
+        {% if user_orders %}
             {% for order in user_orders %}
-                <li>Book: {{ order.book.title }}</li>
-                <li>Quantity: {{ order.quantity }}</li>
-                <li>Amount: ${{ order.amount }}</li>
-                <li>Address: {{ order.address }}</li>
-                <li>Payment Option: {{ order.payment_type }}</li>
+                <div class="order-details">
+                    <h3>Order #{{ order.order_id }}</h3>
+                    <ul>
+                        {% for payment in order.payment_set.all %}
+                            <li>Book: {{ payment.book.title }}</li>
+                            <li>Author: {{ payment.book.author }}</li>
+                            <li>Quantity: {{ payment.quantity }}</li>
+                            <li>Amount: ${{ payment.amount }}</li>
+                        {% endfor %}
+                        
+                        <li>Total Price: ${{ order.amount }}</li>
+                        <li>Address: {{ order.address }}</li>
+                        <li>Payment Option: {{ order.payment_type }}</li>
+                    </ul>
+                </div>
             {% endfor %}
-        </ul>
+        {% else %}
+            <p>No orders found.</p>
+        {% endif %}
     </div>
 {% endblock %}
