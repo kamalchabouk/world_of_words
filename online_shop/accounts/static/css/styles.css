@@ -20,7 +20,7 @@ body{  /* Background Settings Main Site
   width: 100%;
   padding: 15px;
   font-size: 16px;
-  background-color: #FF5733; /* Change the background color */
+  background-color: #1a1918; /* Change the background color */
   border: none;
   color: white;
   border-radius: 5px;
@@ -29,7 +29,7 @@ body{  /* Background Settings Main Site
 }
 
 .navbar button:hover {
-  background: #FF8C00; /* Change the hover background color */
+  background: #0e0d0d; /* Change the hover background color */
   color: white;
   border-radius: 5px;
   box-shadow: 0 0 5px #FF8C00,

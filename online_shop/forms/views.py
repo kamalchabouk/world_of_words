@@ -9,7 +9,7 @@ from .forms import AddBookForm
 from django.views.generic.edit import FormView,DeleteView
 from django.urls import reverse_lazy
 from django.http import HttpResponseServerError
-from .forms import AddBookForm
+from .forms import AddBookForm,UpdateBookForm 
 from shop.models import Book
 
 class AddBookView(FormView):
@@ -52,10 +52,9 @@ class AddBookView(FormView):
 
 class EditBookView(UpdateView):
     model = Book
-    form_class = AddBookForm
+    form_class = UpdateBookForm  # Use UpdateBookForm for editing
     template_name = 'edit_book.html'
     success_url = reverse_lazy('shop:book_detail')
-
 
 class BookDeleteView(DeleteView):
     model = Book

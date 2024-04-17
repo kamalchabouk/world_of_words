@@ -42,10 +42,10 @@ def registration_view(request):
 
 class IndexView(TemplateView):
     template_name="index.html"
-
+    
 class EditProfileView(View):
     template_name = 'edit_profile.html'
-
+    success_url = reverse_lazy('accounts:my_profile')
     def get(self, request):
         user = request.user
         form = CustomUserChangeForm(instance=user)

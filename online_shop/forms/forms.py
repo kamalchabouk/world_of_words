@@ -1,5 +1,5 @@
 from django import forms
-
+from shop.models import Book 
 class AddBookForm(forms.Form):
     author = forms.CharField(max_length=255, required=False)
     title = forms.CharField(widget=forms.Textarea, required=False)
@@ -11,3 +11,16 @@ class AddBookForm(forms.Form):
     language = forms.CharField(max_length=50, required=False)
     price = forms.DecimalField(max_digits=10, decimal_places=2, required=False)
     picture = forms.ImageField(required=False)
+
+
+ # Assuming your book model is in the same app
+
+class UpdateBookForm(forms.ModelForm):
+    class Meta:
+        model = Book  
+        fields = ['title', 'author',  'price','language','pages','year','genre', 'availability', 'picture']  # Fields to edit
+
+    def clean_title(self):
+        title = self.cleaned_data['title']
+
+        return title

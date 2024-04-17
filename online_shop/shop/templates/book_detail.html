@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 
-{% block content %}
+{% block content %}z
  <div class="col-md-6">
   <img src="{{ book.picture.url }}" class="wishlist-book-image" alt="{{ book.title }}"><div class="col-md-6">
     <h2>{{ book.title }}</h2>
-    <p>Author: {{ book.author }}</p>
-    <p>Price: ${{ book.price }}</p>
-    <p>Language: {{ book.language }}</p>
-    <p>Pages: {{ book.pages }}</p>
-    <p>Publishing Year: {{ book.year }}</p>
-    <p>Genre: {{ book.genre }}</p>
-    <p>Availability: {% if book.availability %}In Stock{% else %}Out of Stock{% endif %}</p>
+    <p class="card-text">Author: {{ book.author }}</p>
+    <p class="card-text">Price: ${{ book.price }}</p>
+    <p class="card-text">Language: {{ book.language }}</p>
+    <p class="card-text">Pages: {{ book.pages }}</p>
+    <p class="card-text">Publishing Year: {{ book.year }}</p>
+    <p class="card-text">Genre: {{ book.genre }}</p>
+    <p class="card-text">Availability: {% if book.availability %}In Stock{% else %}Out of Stock{% endif %}</p>
 
     <form method="post" action="{% url 'shop:add_to_cart' book.pk %}">
         {% csrf_token %}
@@ -22,6 +22,16 @@
         <button type="submit" class="btn btn-outline-primary">Add to Wishlist</button>
     </form>
     
+    {% if user.is_superuser %}
+    <form method="post" action="{% url 'forms:edit_book' book.pk %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-outline-primary">Edit Book</button>
+
+    <form method="post" action="{% url 'forms:edit_book' book.pk %}">
+
+            {% csrf_token %}
+        <button type="submit" class="btn btn-outline-primary">Delete Book</button>
+    {% endif %}
 </div>
 
 

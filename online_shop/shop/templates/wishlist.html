@@ -8,8 +8,8 @@
         {% for wishlist_book in wishlist_books %}
             <li>
                 <img src="{{ wishlist_book.picture.url }}" alt="{{ wishlist_book.title }}" class="wishlist-book-image">
-                <p>Title: {{ wishlist_book.title }} - Author: {{ wishlist_book.author }}</p>
-                <p>Price: ${{ wishlist_book.price }}</p>
+                <p class="card-text">Title: {{ wishlist_book.title }} - Author: {{ wishlist_book.author }}</p>
+                <p class="card-text">Price: ${{ wishlist_book.price }}</p>
                 <form method="post" action="{% url 'shop:remove_from_wishlist' wishlist_book.pk %}">
                     {% csrf_token %}
                     <button type="submit">Remove from Wishlist</button>

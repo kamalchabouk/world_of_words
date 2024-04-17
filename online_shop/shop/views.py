@@ -14,6 +14,7 @@ from django.utils import timezone
 import json
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.views.generic.list import ListView
 
 
 class BookListView(View):
@@ -364,7 +365,7 @@ def shop_home(request):
 def shop_genres(request):
     return render(request, 'genres.html')
 
-class BookAsListView(View):
+class BookAsListView(ListView):
     def get(self, request):
         all_books = Book.objects.all()  # Fetch all books from the database
         # featured_books = Book.objects.filter(featured=True)  # Assuming you have a field named 'featured'
