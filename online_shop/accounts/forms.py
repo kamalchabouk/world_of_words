@@ -1,6 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
-from .models import CustomUser,Comment, Rate
-from django import forms
+from .models import CustomUser
+
 
 
 class CustomUserCreationForm(UserCreationForm):
@@ -28,12 +28,3 @@ class CustomPasswordChangeForm(PasswordChangeForm):
         model = CustomUser
 
 
-class CommentForm(forms.ModelForm):
-    class Meta:
-        model = Comment
-        fields = ('name', 'comment')  # Fields displayed in the form
-
-class RateForm(forms.ModelForm):
-    class Meta:
-        model = Rate
-        fields = ('rating',)  

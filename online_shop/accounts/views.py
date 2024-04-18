@@ -7,8 +7,6 @@ from .forms import CustomUserChangeForm, CustomUserCreationForm
 from django.views.generic import CreateView, ListView, View, FormView,TemplateView
 from django.urls import reverse_lazy, reverse
 from django.contrib.auth.decorators import login_required
-from .models import Comment, Rate
-from .forms import CommentForm, RateForm
 
 class RegistrationForm(CreateView):
     form_class = CustomUserCreationForm
@@ -111,29 +109,3 @@ class LogoutView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['message'] = 'Thank you for visiting'
 
-@login_required
-class CreateCommentView(CreateView):
-    model = Comment
-    form_class = CommentForm
-    template_name = 'create_comment.html'
-
-    def get_success_url(self):
-        return reverse('book_detail', kwargs={'pk': self.object.book})  # Updated for book detail
-
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super().form_valid(form)
-
-# Class-based view for creating a rating (requires login)
-@login_required
-class CreateRateView(CreateView):
-    model = Rate
-    form_class = RateForm
-    template_name = 'create_rate.html'
-
-    def get_success_url(self):
-        return reverse('book_detail', kwargs={'pk': self.object.book})  # Updated for book detail
-
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super().form_valid(form)

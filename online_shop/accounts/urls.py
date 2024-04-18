@@ -5,9 +5,7 @@ from .views import (
     ProfileView,
     ChangePasswordView,
     LogoutView,IndexView,
-    CreateCommentView,
-    CreateRateView,
-    book_comments
+
 )
 app_name = 'accounts'
 
@@ -18,11 +16,6 @@ urlpatterns = [
     path('my_profile/', ProfileView.as_view(), name='my_profile'),
     path('change-password/', ChangePasswordView.as_view(), name='change_password'),
     path('logout/', LogoutView.as_view(), name='logout'),
-    path('books/<int:book_id>/create-comment/', CreateCommentView.as_view(), name='create_comment'),
-    path('books/<int:book_id>/create-rate/', CreateRateView.as_view(), name='create_rate'),
-    # Optional URL pattern for displaying book comments
-    path('books/<int:book_id>/comments/', book_comments, name='book_comments'),
-    # ... other URL patterns for your application
-
+ 
 
 ]

@@ -15,19 +15,3 @@ class CustomUser(AbstractUser):
     wishlist = models.ManyToManyField('shop.Book', blank=True, related_name='custom_user_wishlist')
 
 
-class Comment(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    book = models.IntegerField()
-    comment = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self) :
-        return self.comment
-
-class Rate(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    book = models.IntegerField()
-    rating = models.IntegerField()
-
-    def __str__(self) :
-        return self.rating

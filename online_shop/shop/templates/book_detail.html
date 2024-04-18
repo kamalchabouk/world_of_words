@@ -8,8 +8,7 @@
       <img src="{{ book.picture.url }}" class="img-fluid rounded" alt="{{ book.title }}">
     </div>
     <div class="col-md-6 d-flex flex-column justify-content-between" style="background-color: #0f0f0f9d; padding: 15px; border-radius: 5px;">
-      <div class="ps-3 text-center">
-        <h2>{{ book.title }}</h2>
+      <div class="ps-3 text-center">  <h2>{{ book.title }}</h2>
         <p class="card-text">Author: {{ book.author }}</p>
         <p class="card-text">Price: ${{ book.price }}</p>
         <p class="card-text">Language: {{ book.language }}</p>
@@ -37,49 +36,6 @@
             <button type="submit" class="btn btn-primary me-2"">Delete Book</button>
           </form>
         {% endif %}
-      </div>
-    </div>
-  </div>
-
-  <div class="container mt-5">
-    <h2>Comments</h2>
-    {% if comments %}
-      <ul class="list-group">
-        {% for comment in comments %}
-        <li class="list-group-item">
-          <p><strong>{{ comment.user.username }}</strong> ({{ comment.created_at }})</p>
-          <p>{{ comment.comment }}</p>
-        </li>
-        {% endfor %}
-      </ul>
-    {% else %}
-      <p>No comments yet. Be the first to leave one!</p>
-    {% endif %}
-
-    {% if user.is_authenticated %}
-      <h3>Leave a Comment</h3>
-      <form method="post" action="{% url 'shop:create_comment' book.pk %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Submit Comment</button>
-      </form>
-    {% else %}
-      <p>You must be logged in to leave a comment. <a href="{% url 'login' %}">Login here</a>.</p>
-    {% endif %}
-  </div>
-
-  <div class="container mt-5">
-    <h2>Rate this Book</h2>
-    {% if rating %}
-      <p>Your Rating: {{ rating.rating }}</p>
-    {% else %}
-      <p>Rate this book:</p>
-      <form method="post" action="{% url 'shop:create_rate' book.pk %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Submit Rating</button>
-      </form>
-    {% endif %}
       </div>
     </div>
   </div>
