@@ -60,8 +60,11 @@
     }
 
     .results-list a:hover {
-      color: #ff0000;
+      color: #990202;
     }
+    .results-list a span.title {
+    color: rgb(17, 0, 255);  /* Set color to red */
+  }
   </style>
 </head>
 <body>
@@ -80,9 +83,11 @@
         {% for item in items %}
           <li>
             <a href="{% url 'shop:book_detail' item.pk %}">
-              Title: {{ item.title }} - Price : {{ item.price }} 
-              Author :(by {{ item.author }}) -  
-              Language: {{ item.language }}-genre{{ item.genre }}
+              <span class="title">Title:</span> {{ item.title }} - 
+              <span class="title">Price:</span> {{ item.price }} 
+              <span class="title">Author:</span>(by {{ item.author }}) -  
+              <span class="title">Author:</span> {{ item.language }}
+              <span class="title">Genre:</span> genre{{ item.genre }}
             </a>
           </li>
         {% endfor %}

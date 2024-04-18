@@ -159,7 +159,7 @@ EMAIL_TIMEOUT = 100
 TLS = True
 
 LOGOUT_REDIRECT_URL = "accounts:index"
-LOGIN_REDIRECT_URL = "accounts:index"
+LOGIN_REDIRECT_URL = "shop:home"
 AUTH_USER_MODEL = 'accounts.CustomUser'
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
