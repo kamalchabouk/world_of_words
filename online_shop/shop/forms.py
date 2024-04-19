@@ -1,28 +1,39 @@
 from django import forms
 from django.utils import timezone
-from .models import Order
+from .models import Order,Comment, Rate
 
 class OrderForm(forms.ModelForm):
+    payment_type = forms.ChoiceField(choices=[
+        ('paypal', 'Paypal'),
+        ('banktransfer', 'Bank Transfer')
+    ], widget=forms.RadioSelect)
+
     class Meta:
         model = Order
-        fields = ['book', 'author', 'order_date', 'payment_type', 'order_status', 'address', 'quantity', 'delivery_date']
-        widgets = {
-            'order_date': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
-            'delivery_date': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
-            'address': forms.TextInput(attrs={'readonly': 'readonly'})  # Make the address field read-only
-        }
+        fields = ['payment_type', 'address', 'paypal_address', 'bank_name', 'account_number', 'iban']
+
+    def clean(self):
+        cleaned_data = super().clean()
+        cleaned_data['delivery_date'] = timezone.now() + timezone.timedelta(days=7)
+        return cleaned_data
 
     def __init__(self, *args, **kwargs):
-        # Retrieve the user's address from the database
-        user_address = kwargs.pop('user_address', None)
+        cart_items = kwargs.pop('cart_items', None)
         super(OrderForm, self).__init__(*args, **kwargs)
 
-        # Prepopulate the address field with the user's address
-        if user_address:
-            self.fields['address'].initial = user_address
+        self.fields['payment_type'].widget.attrs['onchange'] = 'toggleFields(this.value)'
+        self.fields['paypal_address'].widget.attrs['class'] = 'paypal-field'
+        self.fields['bank_name'].widget.attrs['class'] = 'bank-transfer-field'
+        self.fields['account_number'].widget.attrs['class'] = 'bank-transfer-field'
+        self.fields['iban'].widget.attrs['class'] = 'bank-transfer-field'
 
-        # Set the default delivery date to 7 days from ordering
-        if 'order_date' in self.initial:
-            order_date = self.initial['order_date']
-            default_delivery_date = order_date + timezone.timedelta(days=7)
-            self.fields['delivery_date'].initial = default_delivery_date
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ("comment",)
+
+class RateForm(forms.ModelForm):
+    class Meta:
+        model = Rate
+        fields = ("rating",)

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<title>Our Book Shop</title>
+<body class="background-image">
+<div class="article"> 
+  <div class="text-box">
+    <h2>World of Words</h2>
+    <h3>Welcome to your literary haven, {{user.username}}!</h3>
+    <h3>We have a wide range of books to choose from.</h3>
+    <h3>Find your perfect read today.</h3>
+    <h3>Please click on the link below to see our featured books.</h3>
+  </div>
+
+<ul>
+    <li>
+        <a href="{% url 'shop:book_list' %}" class="btn btn-primary">Our featured books</a>
+    </li>
+</ul>
+
+<style>
+  /* Button styles */
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    background-color: #007bff;  /* Example blue color */
+    color: #fff;  /* White text color */
+    width: 200px;  /* Adjust width as needed */
+  }
+</style>
+</div> 
+</body> 
+{% endblock content %}

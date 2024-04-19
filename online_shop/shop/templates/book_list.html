@@ -1,17 +1,123 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>All Books</h2>
-  <ul>
-    {% for book in all_books %}
-      <li>{{ book.title }}</li>
-    {% endfor %}
-  </ul>
-
+<div class="text-box">
   <h2>Featured Books</h2>
-  <ul>
-    {% for book in books %}
-      <li>{{ book.title }}</li>
+  <p class="card-text">Click on a cover to get more info.</p>
+</div>
+  <div class="slideshow-container">
+    {% for book in all_books %}
+      <div class="slide fade">
+        <a href="{% url 'shop:book_detail' book.pk %}">
+          <img src="{{ book.picture.url }}" alt="{{ book.title }}">
+          <div class="caption">{{ book.title }} - Author: {{ book.author }}</div>
+        </a>
+      </div>
     {% endfor %}
-  </ul>
+    <!-- Navigation buttons -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+
+  <style>
+    /* Slideshow container */
+    .slideshow-container {
+      position: relative;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    /* Slides */
+    .slide {
+      display: none;
+    }
+
+    /* Fade animation */
+    .fade {
+      animation: fade 2s linear infinite;
+    }
+
+    /* Caption */
+    .caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+
+    /* Fade animation */
+    @keyframes fade {
+      0% { opacity: 0; }
+      20% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    /* Navigation buttons style */
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      padding: 16px;
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+    }
+
+    .prev:hover, .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .prev {
+      left: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+  </style>
+
+  <script>
+    // JavaScript for controlling slideshow
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      let slides = document.getElementsByClassName("slide");
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {
+        slideIndex = 1;
+      }
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+
+    // Function to move slides forward or backward
+    function plusSlides(n) {
+      slideIndex += n;
+      let slides = document.getElementsByClassName("slide");
+      if (slideIndex > slides.length) {
+        slideIndex = 1;
+      }
+      if (slideIndex < 1) {
+        slideIndex = slides.length;
+      }
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slides[slideIndex - 1].style.display = "block";
+    }
+  </script>
 {% endblock %}

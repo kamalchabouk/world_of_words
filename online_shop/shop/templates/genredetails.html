@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="text-box">
+    <h1>Genre Details</h1>
+    {% if genre_details %}
+        <h2>{{ genre_details.name }}</h2>
+        {% if genre_details.description %}
+        <p class="card-text">{{ genre_details.description }}</p>
+    {% else %}
+        <p>Description not found</p>
+        {% endif %}
+    {% endif %}
+</div>
+{% endblock %}

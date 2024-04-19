@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block list %}
+<div class="list-container">
+    <div class="text-box">
+
+        <h2>All Books</h2>
+        <p>Click on the title or the image for more info.</p>
+    </div>
+        <form method="post" action="{% url 'filters:filter' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary me-2">Filter</button>
+      </form>
+    <div class="row">
+        {% for book in all_books %}
+        <div class="col-md-3 mb-4">
+            <div class="card" style="background-color: black;align-items: center;">
+                <a href="{% url 'shop:book_detail' book.pk %}">
+                    <img src="{{ book.picture.url }}" alt="{{ book.title }}">
+                </a>
+                <div class="card-body" style="background-color: black;">
+                    <h5 class="card-title">
+                        <a href="{% url 'shop:book_detail' book.pk %}">{{ book.title }}</a>
+                    </h5>
+                    <p class="card-text" ">Author: {{ book.author }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

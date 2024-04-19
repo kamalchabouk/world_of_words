@@ -6,7 +6,17 @@ from dotenv import load_dotenv
 load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+
+
+
+# Define the URL prefix for media files
+MEDIA_URL = '/media/'
+# Define the directory where uploaded media files will be stored
+
+MEDIA_ROOT = os.path.join(BASE_DIR, '')
+# Static files (CSS, JavaScript, images)
+STATIC_URL = 'shop/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "shop/static")]
 
 
 # Quick-start development settings - unsuitable for production
@@ -30,8 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "crispy_forms",
+    "crispy_bootstrap5",
     'shop.apps.ShopConfig',
     'accounts.apps.AccountsConfig',
+    'forms.apps.FormsConfig',
+    'filter.apps.FilterConfig',
 ]
 
 MIDDLEWARE = [
@@ -49,7 +63,7 @@ ROOT_URLCONF = 'online_shop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -120,7 +134,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+#STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -144,6 +158,8 @@ EMAIL_SUBJECT_PREFIX = "Password Recovery"
 EMAIL_TIMEOUT = 100
 TLS = True
 
-LOGOUT_REDIRECT_URL = "/"
-LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "accounts:index"
+LOGIN_REDIRECT_URL = "shop:home"
 AUTH_USER_MODEL = 'accounts.CustomUser'
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"

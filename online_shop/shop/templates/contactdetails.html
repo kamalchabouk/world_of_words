@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="text-box">
+    <h1>Contact Details</h1>
+    {% if contact_details %}
+        <h2>{{ contact_details.first_name }} {{ contact_details.last_name }}</h2>
+        {% if contact_details.email %}
+        <p>Email: {{ contact_details.email }}</p>
+        {% endif %}
+        {% if contact_details.phone %}
+        <p>Phone: {{ contact_details.phone }}</p>
+        {% endif %}
+    {% else %}
+        <p>Contact not found</p>
+    {% endif %}
+</div>
+{% endblock %}

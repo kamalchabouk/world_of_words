@@ -1,59 +1,82 @@
-html{
+html {
     height: 100%;
     font-family: sans-serif;
 }
 
-body{  /* Background Settings Main Site  
-    background: linear-gradient( to bottom, transparent,rgb(48, 46, 46));  */
-    background-image: url('/static/images/background.jpg');
+body {
+    /* Background Settings Main Site */
+    background-image: url(../background.jpg);
+    background-attachment: fixed;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    display: flex;
-    align-items: center;                 
-    justify-content: center;
-    height: 100vh;
+    background-color: rgb(92, 92, 92);
+    height: 100vh; /* Set the height of the body to 100% of the viewport height */
+    color: white;
+    position: relative;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+.logout-button {
+    float: right;
+    
+  }
+.background-image {
+/*     background-image: url(../background.jpg);
+ */    background-size: cover;
 }
 
-form{  /* Login Form Details */
-    background-color: rgb(153, 137, 137);
-    opacity: 0.8;                   /* Transparent setting */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(100, 95, 95, 0.7); /* Adjust opacity as needed */
+}
+
+form {
+    /* Login Form Details */
+    background-color: rgb(7, 6, 6);
+    opacity: 0.8; /* Transparent setting */
     border-radius: 5%;
-    padding: 2rem;
-    font-weight: 700;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    padding: 0.5rem;
+    font-weight: 900;
+    box-shadow: 0 0 10px rgba(153, 1, 1, 0.664);
     margin: 0 auto;
-    width: 300px;
+    width: 200px;
 }
 
-form input,              
+form input,
 form select,
 form textarea {
     width: 100%;
     margin-bottom: 10px;
     padding: 10px;
     box-sizing: border-box;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 5px rgba(145, 5, 5, 0.3);
     border: none;
-    padding: 1em;
+    padding: 0.2em;
 }
 
-form button{
+form button,
+.remove-item { /* Applying the same styling to the .remove-item class */
     display: block;
     width: 100%;
-    padding: 15px;
+    padding: 4px;
     font-size: 16px;
-    background-color: rgb(0, 0, 8);
+    background-color: rgba(218, 91, 91, 0.788);
     border: none;
-    color: white;
+    color: rgb(34, 34, 34);
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease-in;
 }
 
-form button:hover{
+form button:hover,
+.remove-item:hover { /* Applying the same hover effect */
     background: #03e9f4;
-    color: #fff;
+    color: #9e0a0a;
     border-radius: 5px;
     box-shadow: 0 0 5px #03e9f4,
                 0 0 25px #03e9f4,
@@ -62,26 +85,360 @@ form button:hover{
     animation: btn-anim1 1s linear infinite;
 }
 
-form .errorlist li{
+form .errorlist li {
     list-style-type: none;
     color: rgb(216, 6, 17);
 }
 
-@media  screen and (max-width: 600px) {
+
+
+.resized-image {
+    width: 100px;
+    height: 75px;   
+}  
+
+
+@media screen and (max-width: 600px) {
     form {
         width: 90%;
     }
 }
+h1{
+    background-color: rgba(0, 0, 0, 0.616);
+    color: #f0e7e7;
+    position: center;
+    background-position: 100%;
 
+}
+h2{
+    background-color: rgba(0, 0, 0, 0.616);
+    position: center;
+    background-position: 100%;
+
+    color: #f0e7e7;
+}
+h3{
+    background-color: rgba(0, 0, 0, 0.616);
+    position: center;
+    background-position: 100%;
+
+    color: #f0e7e7;
+}
+h4{
+    background-color: rgba(0, 0, 0, 0.616);
+    position: center;
+    background-position: 100%;
+
+    color: #f0e7e7;
+}
+h5{
+    background-color: rgba(0, 0, 0, 0);
+    position: center;
+    background-position: 100%;
+
+    color: #ada7a7;
+}
+h6{
+    background-color: rgba(0, 0, 0, 0.616);
+    background-position: 100%;
+    position: center;
+
+    color: #ada7a7;
+}
 @keyframes button {
     0% {
-      bottom: -100%;
+        bottom: -100%;
     }
     50%,100% {
-      bottom: 100%;
+        bottom: 100%;
     }
+}
+.card img {
+    width: 100px;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    object-position:center;
+
+} 
+.card-text{
+    color: #f0e7e7;
+    background-color: rgba(0, 0, 0, 0.616);
+    position: center;
+    background-position: 100%;
+
+}
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-list a {
+    color: #78387a; /* Set link color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Make text bold */
+    transition: color 0.3s ease-in; /* Smooth transition effect for color change */
+}
+
+.contact-list a:hover {
+    color: #0056b3; /* Change link color on hover */
+}
+
+
+.genre-list a {
+    color: #0954f5; /* Set link color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Make text bold */
+    transition: color 0.1s ease-in; /* Smooth transition effect for color change */
+    font-family: fantasy;
+}
+/* .content1 {
+    padding-top: 6500px; /* Adjust this value to match the height of your navbar */
+} */
+.genre-list a:hover {
+    color: #225b97; /* Change link color on hover */
+}
+
+.home-link a {
+    color: #78387a; /* Set link color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Make text bold */
+    transition: color 0.3s ease-in; /* Smooth transition effect for color change */
+}
+
+.home-link a:hover {
+    color: #0056b3; /* Change link color on hover */
+}
+
+
+
+.contact-list{   
+    color: #f0e7e7;    
+    padding-top: 5000px; 
+    list-style-type: none;
+    padding: 0;
+}
+
+.contact-list li {
+    color: #f0e7e7;    
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.contact-link {
+    color: #0004ff; /* Blue color for links */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Make text bold */
+}
+
+.contact-link:hover {
+    text-decoration: underline; /* Add underline on hover */
+    color: blue;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1; /* Ensure the navbar stays on top of other content */
+    background-color: #333; /* Dark background color */
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333; /* Dark background color */
+  }
   
+  nav li {
+    float: left;
+  }
+  
+  nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  nav li a:hover {
+    background-color: #ddd; /* Light gray background color on hover */
+    color: black;
+  }
+  
+.wishlist-book-image {
+    max-width: 200px; /* Adjust the maximum width as needed */
+    max-height: 200px; /* Adjust the maximum height as needed */
+  }
+
+.distance {
+    margin-top: 14700px; /* Adjust the value based on the height of your navbar */
+}
 /* 
   animation: btn-anim4 1s linear infinite;
   animation-delay: .75s */
+.list-container {
+    background-color: #f9f9f96c;
+    padding: 20px;
+    padding-top: 6500px; 
+    text-align: center;
+    border-radius: 5px;
+}
+
+.list-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(105, 105, 105, 0.1);
+}
+
+.list-item h2 {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 5px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+.list-item p {
+    color: #666;
+    font-size: 14px;
+}
+.footer {
+    color: #ffffff;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 30px; /* Reduced height */
+    line-height: 1.2; /* Reduced line height (optional) */
+    padding: 5px; /* Reduced padding (optional) */
+    margin: 0; /* Removed margins (optional) */
+    background-color: #333;
+  }
+
+  
+.copyright {
+    margin-bottom: 10px;
+  }
+
+.contact-box {
+    border: 1px solid #0509ec; /* Add a border */
+    padding: 15px; /* Add padding inside the box */
+    margin: 0 auto; /* Center the box horizontally */
+    width: 50%; /* Set a width for the box (adjust as needed) */
+  }
+
+.text-box {
+    text-align: center;
+    border: 1px solid #0509ec; /* Add a border */
+    padding: 15px; /* Add padding inside the box */
+    margin: 0 auto; /* Center the box horizontally */
+    width: 100%; /* Set a width for the box (adjust as needed) */
+    background-color: black;
+    font-family:fantasy;
+  }
+
+  .wishlist-book {
+    text-align: center;
+    border: 1px solid #0509ec; /* Add a border */
+    padding: 15px; /* Add padding inside the box */
+    margin: 0 auto; /* Center the box horizontally */
+    width: 100%; /* Set a width for the box (adjust as needed) */
+    background-color: black;
+    font-family:fantasy;
+    display: flex;
+    
+  }
+  
+  .wishlist-book-image {
+    width: 100px;
+    height: auto;
+    margin-right: 15px;
+  }
+  
+  .wishlist-book-details {
+    flex: 1;
+  }
+  .container.mt-6 {
+    size-adjust: 100px;
+    display: flex;
+    flex-direction: column;
+    max-height: 500px;
+    padding-top:50%;
+    padding-bottom: auto;
+    padding: auto;
+    height: 50%;
+    width: 100%;
+  }
+  .wishlist-book-image {
+    width: 80px; /* Adjust the width as needed */
+    height: auto;
+  }
+  .cart-container {
+    position: fixed;
+    top: 70px; /* Adjust as needed to create padding from the navbar */
+    left: 50%;
+    transform: translateX(-50%);
+    max-height: calc(100vh - 100px); /* Adjust as needed based on the available viewport height */
+    overflow-y: auto;
+    background-color: #6E185C; /* Optional: Add a background color */
+    padding: 20px; /* Optional: Add padding for spacing */
+    z-index: 1000; /* Ensure it appears above other content */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for depth */
+}
+.cart-content {
+    /* Ensure that the content inside the cart-container fills its available space */
+    height: 100%;
+}
+.navbar-logo img {
+    size:0;
+    width: 75px; /* Adjust the width as needed */
+    height:auto;
+    margin-left: auto; /* Align the logo to the end of the left side */
+  }
+  .star-rating {
+    unicode-bidi: bidi-override;
+    color: #f1c40f;
+    font-size: 20px;
+    margin-bottom: 10px;
+    position: relative;
+    padding: 0;
+}
+
+.star-rating .star {
+    display: inline-block;
+    position: relative;
+    width: 1.1em;
+    font-size: 1.1em;
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.star-rating .star:before {
+    content: "\2605";
+    position: absolute;
+    left: 0;
+    color: #f1c40f;
+}
+
+.star-rating .star:after {
+    content: "\2605";
+    position: absolute;
+    left: 0;
+    color: #f1c40f;
+    opacity: 0;
+    transition: opacity 0.2s linear;
+}
+
+.star-rating:hover .star:after,
+.star-rating:hover .star:hover ~ .star:after {
+    opacity: 1;
 }
