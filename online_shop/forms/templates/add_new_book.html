@@ -4,7 +4,7 @@
 {% block content %}
 
 <h1>New Book</h1>
-<form method="post" enctype="multipart/form-data" style="width: 100%; margin-left: 0%;">
+<form method="post" enctype="multipart/form-data" style="width: 100%; margin-left: 0%;padding-top: 50%;padding-bottom: 10%;">
     {% csrf_token %}
     {{ form | crispy }}
     <input type="submit" value="Save">

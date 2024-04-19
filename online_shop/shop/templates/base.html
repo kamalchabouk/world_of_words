@@ -14,9 +14,14 @@
 
 <body>
   <header>
+    
     <div class="container">
       <nav>
         <ul>
+
+        <a href="{% url 'shop:home' %}" class="navbar-logo">
+          <img src="{% static '../static/images/lg1.jpeg' %}" alt="Logo">
+        </a>
           <li><a href="{% url 'shop:home' %}">Home</a></li>
           <li><a href="{% url 'shop:book_list' %}">Featured Books</a></li>
           <li><a href="{% url 'shop:books_as_list' %}">All Books</a></li>
@@ -52,6 +57,7 @@
   <footer class="footer">
       <div> 
          <p class="copyright">&copy; 2024 Your Website Name. All Rights Reserved.</p>
+
       </div>
   </footer>
 </body>

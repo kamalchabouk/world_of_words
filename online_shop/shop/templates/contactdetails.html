@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<body>
+<div class="text-box">
     <h1>Contact Details</h1>
     {% if contact_details %}
         <h2>{{ contact_details.first_name }} {{ contact_details.last_name }}</h2>
@@ -14,6 +14,5 @@
     {% else %}
         <p>Contact not found</p>
     {% endif %}
-</body>
-</html>
+</div>
 {% endblock %}

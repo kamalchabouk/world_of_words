@@ -1,19 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
-<title>Genres</title>
-<body>
-<div class="article"> 
-<h2>Genres</h2>
-<h3>Here you can learn more about the different literary genres.</h3>
-<h3>Click on a genre to find out more.</h3>
-<ul class="genre-list">
-    {% for genre in genres %}
-        <ul>
-            <a href="{% url 'shop:genre_details' genre.id %}">{{ genre.name }}</a>
+<div class="text-box"style="text-align:left;">
+    <div class="text-box" style="text-align:left;">
+        <h2>Genres</h2>
+        <h3>Here you can learn more about the different literary genres.</h3>
+        <h3>Click on a genre to find out more.</h3>
+        <ul class="genre-list">
+            {% for genre in genres %}
+                <li><a href="{% url 'shop:genre_details' genre.id %}">{{ genre.name }}</a></li>
+            {% endfor %}
         </ul>
-    {% endfor %}
-</ul>
+    </div>
+</div>
 
-</body>
-</html>
 {% endblock %}

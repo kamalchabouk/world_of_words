@@ -6,10 +6,17 @@
 -admin login 
 -add admin account
 -book details
-shopping cart
 -books list
 -add book
 -add more blocks to the base page
-home html featured books style and featured
-add footer
-feutered books
+-home html featured books style and featured
+-add footer
+-feuterd books
+-move the contact to the footer view cart better layout 
+shopping cart
+change the contact layout page
+change the genre layout page 
+add rate and review
+-fix the register html
+wishlist layout
+genre and contact details

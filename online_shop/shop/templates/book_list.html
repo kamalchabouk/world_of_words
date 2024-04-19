@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="text-box">
   <h2>Featured Books</h2>
   <p class="card-text">Click on a cover to get more info.</p>
+</div>
   <div class="slideshow-container">
     {% for book in all_books %}
       <div class="slide fade">

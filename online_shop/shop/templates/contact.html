@@ -1,17 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<body>
+<div class="text-box"style="text-align:left;">
+  <div class="text-box" style="text-align:left;">
+
     <h1>Contact List</h1>
     <p>Please click on the name for more info</p>
-    <ul class="contact-list">
-    
-        {% for contact in contacts %}
-            <li>
-                <a href="{% url 'shop:contact_details' contact.id %}">{{ contact.first_name }} {{ contact.last_name }}</a>
-            </li>
-        {% endfor %}
+    <ul class="contact-list" style="color: aliceblue;">
+      {% for contact in contacts %}
+        <li>
+          <a href="{% url 'shop:contact_details' contact.id %}" style="color: #0954f5;">{{ contact.first_name }} {{ contact.last_name }}</a>
+        </li>
+      {% endfor %}
     </ul>
-</body>
-</html>
+  </div>
+</div>
 {% endblock %}

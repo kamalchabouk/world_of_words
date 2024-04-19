@@ -191,16 +191,17 @@ h6{
 
 
 .genre-list a {
-    color: #78387a; /* Set link color */
+    color: #0954f5; /* Set link color */
     text-decoration: none; /* Remove underline */
     font-weight: bold; /* Make text bold */
-    transition: color 0.3s ease-in; /* Smooth transition effect for color change */
+    transition: color 0.1s ease-in; /* Smooth transition effect for color change */
+    font-family: fantasy;
 }
 /* .content1 {
     padding-top: 6500px; /* Adjust this value to match the height of your navbar */
 } */
 .genre-list a:hover {
-    color: #0056b3; /* Change link color on hover */
+    color: #225b97; /* Change link color on hover */
 }
 
 .home-link a {
@@ -216,18 +217,21 @@ h6{
 
 
 
-.contact-list{       
+.contact-list{   
+    color: #f0e7e7;    
     padding-top: 5000px; 
     list-style-type: none;
     padding: 0;
 }
 
 .contact-list li {
+    color: #f0e7e7;    
+    padding: 10px;
     margin-bottom: 10px;
 }
 
 .contact-link {
-    color: #d400ff; /* Blue color for links */
+    color: #0004ff; /* Blue color for links */
     text-decoration: none; /* Remove underline */
     font-weight: bold; /* Make text bold */
 }
@@ -325,3 +329,116 @@ nav ul {
 .copyright {
     margin-bottom: 10px;
   }
+
+.contact-box {
+    border: 1px solid #0509ec; /* Add a border */
+    padding: 15px; /* Add padding inside the box */
+    margin: 0 auto; /* Center the box horizontally */
+    width: 50%; /* Set a width for the box (adjust as needed) */
+  }
+
+.text-box {
+    text-align: center;
+    border: 1px solid #0509ec; /* Add a border */
+    padding: 15px; /* Add padding inside the box */
+    margin: 0 auto; /* Center the box horizontally */
+    width: 100%; /* Set a width for the box (adjust as needed) */
+    background-color: black;
+    font-family:fantasy;
+  }
+
+  .wishlist-book {
+    text-align: center;
+    border: 1px solid #0509ec; /* Add a border */
+    padding: 15px; /* Add padding inside the box */
+    margin: 0 auto; /* Center the box horizontally */
+    width: 100%; /* Set a width for the box (adjust as needed) */
+    background-color: black;
+    font-family:fantasy;
+    display: flex;
+    
+  }
+  
+  .wishlist-book-image {
+    width: 100px;
+    height: auto;
+    margin-right: 15px;
+  }
+  
+  .wishlist-book-details {
+    flex: 1;
+  }
+  .container.mt-6 {
+    size-adjust: 100px;
+    display: flex;
+    flex-direction: column;
+    max-height: 500px;
+    padding-top:50%;
+    padding-bottom: auto;
+    padding: auto;
+    height: 50%;
+    width: 100%;
+  }
+  .wishlist-book-image {
+    width: 80px; /* Adjust the width as needed */
+    height: auto;
+  }
+  .cart-container {
+    position: fixed;
+    top: 70px; /* Adjust as needed to create padding from the navbar */
+    left: 50%;
+    transform: translateX(-50%);
+    max-height: calc(100vh - 100px); /* Adjust as needed based on the available viewport height */
+    overflow-y: auto;
+    background-color: #6E185C; /* Optional: Add a background color */
+    padding: 20px; /* Optional: Add padding for spacing */
+    z-index: 1000; /* Ensure it appears above other content */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for depth */
+}
+.cart-content {
+    /* Ensure that the content inside the cart-container fills its available space */
+    height: 100%;
+}
+.navbar-logo img {
+    size:0;
+    width: 75px; /* Adjust the width as needed */
+    height:auto;
+    margin-left: auto; /* Align the logo to the end of the left side */
+  }
+  .star-rating {
+    unicode-bidi: bidi-override;
+    color: #f1c40f;
+    font-size: 20px;
+    margin-bottom: 10px;
+    position: relative;
+    padding: 0;
+}
+
+.star-rating .star {
+    display: inline-block;
+    position: relative;
+    width: 1.1em;
+    font-size: 1.1em;
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.star-rating .star:before {
+    content: "\2605";
+    position: absolute;
+    left: 0;
+    color: #f1c40f;
+}
+
+.star-rating .star:after {
+    content: "\2605";
+    position: absolute;
+    left: 0;
+    color: #f1c40f;
+    opacity: 0;
+    transition: opacity 0.2s linear;
+}
+
+.star-rating:hover .star:after,
+.star-rating:hover .star:hover ~ .star:after {
+    opacity: 1;
+}

@@ -1,6 +1,6 @@
 from django import forms
 from django.utils import timezone
-from .models import Order
+from .models import Order,Comment, Rate
 
 class OrderForm(forms.ModelForm):
     payment_type = forms.ChoiceField(choices=[
@@ -27,3 +27,13 @@ class OrderForm(forms.ModelForm):
         self.fields['account_number'].widget.attrs['class'] = 'bank-transfer-field'
         self.fields['iban'].widget.attrs['class'] = 'bank-transfer-field'
 
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ("comment",)
+
+class RateForm(forms.ModelForm):
+    class Meta:
+        model = Rate
+        fields = ("rating",)

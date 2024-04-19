@@ -26,5 +26,6 @@ urlpatterns = [
     path('genres/', genres, name='genres'),
     path('genre_details/<int:genre_id>/', genredetails, name='genre_details'),
 
+
 ]
 
