@@ -16,6 +16,48 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.views.generic.list import ListView
 
+from django.http import JsonResponse
+from .serializers import BookSerializer, PaymentSerializer, OrderSerializer, AuthorSerializer 
+def download_book_data_json(request):
+  # Fetch data from your model (replace with your queryset logic)
+  data = Book.objects.all()  # Get all objects (filter/sort as needed)
+
+  # Serialize data to JSON
+  serializer = BookSerializer(data, many=True)
+
+  # Return JSON response with appropriate content type
+  return JsonResponse(serializer.data, content_type='application/json')
+
+def download_author_data_json(request):
+  # Fetch data from your model (replace with your queryset logic)
+  data = Author.objects.all()  # Get all objects (filter/sort as needed)
+
+  # Serialize data to JSON
+  serializer = AuthorSerializer(data, many=True)
+
+  # Return JSON response with appropriate content type
+  return JsonResponse(serializer.data, content_type='application/json')
+
+def download_payment_data_json(request):
+  # Fetch data from your model (replace with your queryset logic)
+  data = Payment.objects.all()  # Get all objects (filter/sort as needed)
+
+  # Serialize data to JSON
+  serializer = PaymentSerializer(data, many=True)
+
+  # Return JSON response with appropriate content type
+  return JsonResponse(serializer.data, content_type='application/json')
+
+def download_order_data_json(request):
+  # Fetch data from your model (replace with your queryset logic)
+  data = Order.objects.all()  # Get all objects (filter/sort as needed)
+
+  # Serialize data to JSON
+  serializer = OrderSerializer(data, many=True)
+
+  # Return JSON response with appropriate content type
+  return JsonResponse(serializer.data, content_type='application/json')
+
 
 class BookListView(View):
     def get(self, request):

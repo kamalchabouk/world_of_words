@@ -1,5 +1,26 @@
 from django.urls import path
-from .views import BookListView, BookDetailPageView, BookAsListView, genres, genredetails, shop_home, contacts, contactdetails, add_to_cart, add_selected_to_cart, remove_from_cart, view_cart, empty_cart, order_confirmation, wishlist, add_to_wishlist, remove_from_wishlist, OrderView
+from .views import (BookListView,
+                    BookDetailPageView,
+                    BookAsListView,
+                    genres,
+                    genredetails,
+                    shop_home,
+                    contacts,
+                    contactdetails,
+                    add_to_cart,
+                    add_selected_to_cart,
+                    remove_from_cart,
+                    view_cart,
+                    empty_cart,
+                    order_confirmation,
+                    wishlist,
+                    add_to_wishlist,
+                    remove_from_wishlist,
+                    OrderView,
+                    download_book_data_json,
+                    download_author_data_json,
+                    download_order_data_json,
+                    download_payment_data_json)
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -25,7 +46,10 @@ urlpatterns = [
     #path('genres/', shop_genres, name='genres'),
     path('genres/', genres, name='genres'),
     path('genre_details/<int:genre_id>/', genredetails, name='genre_details'),
-
+    path('download_data.json', download_book_data_json, name='download_data'),
+  path('download_author_data.json', download_author_data_json, name='download_author_data'),
+  path('download_order_data.json', download_order_data_json, name='download_order_data'),
+  path('download_payment_data.json', download_payment_data_json, name='download_payment_data'),
 
 ]
 

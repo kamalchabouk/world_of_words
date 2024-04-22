@@ -60,19 +60,5 @@ class Order(models.Model):
 #     order = models.ForeignKey(Order, on_delete=models.CASCADE)
 #     book = models.ForeignKey(Book, on_delete=models.CASCADE)
 #     quantity = models.PositiveIntegerField()
-class Comment(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    course = models.IntegerField()
-    comment = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self) :
-        return self.comment
 
-class Rate(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    course = models.IntegerField()
-    rating = models.IntegerField()
-
-    def __str__(self) :
-        return self.rating

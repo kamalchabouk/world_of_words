@@ -1,5 +1,6 @@
 [
   {
+    "model":"shop.Book",
     "author": "Chinua Achebe",
     "country": "Nigeria",
     "imageLink": "media/images/things-fall-apart.jpg",
@@ -13,6 +14,7 @@
     "price": 20.50
   },
   {
+    "model":"shop.Book",
     "author": "Hans Christian Andersen",
     "country": "Denmark",
     "imageLink": "media/images/fairy-tales.jpg",
@@ -26,6 +28,8 @@
     "price": 25.75
   },
   {
+    "model":"shop.Book",
+
     "author": "Dante Alighieri",
     "country": "Italy",
     "imageLink": "media/images/the-divine-comedy.jpg",
@@ -39,6 +43,8 @@
     "price": 27.30
   },
   {
+    "model":"shop.Book",
+
     "author": "Unknown",
     "country": "Sumer and Akkadian Empire",
     "imageLink": "media/images/the-epic-of-gilgamesh.jpg",
@@ -52,6 +58,8 @@
     "price": 18.75
   },
   {
+    "model":"shop.Book",
+
     "author": "Unknown",
     "country": "Achaemenid Empire",
     "imageLink": "media/images/the-book-of-job.jpg",
@@ -65,6 +73,8 @@
     "price": 16.80
   },
   {
+    "model":"shop.Book",
+
     "author": "Unknown",
     "country": "India/Iran/Iraq/Egypt/Tajikistan",
     "imageLink": "media/images/one-thousand-and-one-nights.jpg",
@@ -78,6 +88,8 @@
     "price": 21.20
   },
   {
+    "model":"shop.Book",
+
     "author": "Unknown",
     "country": "Iceland",
     "imageLink": "media/images/njals-saga.jpg",
@@ -91,6 +103,8 @@
     "price": 19.45
   },
   {
+    "model":"shop.Book",
+
     "author": "Jane Austen",
     "country": "United Kingdom",
     "imageLink": "media/images/pride-and-prejudice.jpg",
@@ -104,6 +118,8 @@
     "price": 22.90
   },
   {
+    "model":"shop.Book",
+
     "author": "Honor\u00e9 de Balzac",
     "country": "France",
     "imageLink": "media/images/le-pere-goriot.jpg",
@@ -117,6 +133,8 @@
     "price": 26.10
   },
   {
+    "model":"shop.Book",
+
     "author": "Samuel Beckett",
     "country": "Republic of Ireland",
     "imageLink": "media/images/molloy-malone-dies-the-unnamable.jpg",
@@ -130,6 +148,8 @@
     "price": 17.60
   },
   {
+    "model":"shop.Book",
+
     "author": "Giovanni Boccaccio",
     "country": "Italy",
     "imageLink": "media/images/the-decameron.jpg",
@@ -143,6 +163,8 @@
     "price": 28.75
   },
   {
+    "model":"shop.Book",
+
     "author": "Jorge Luis Borges",
     "country": "Argentina",
     "imageLink": "media/images/ficciones.jpg",
@@ -156,6 +178,8 @@
     "price": 18.50
   },
   {
+    "model":"shop.Book",
+
     "author": "Emily Bront\u00eb",
     "country": "United Kingdom",
     "imageLink": "media/images/wuthering-heights.jpg",
@@ -169,6 +193,8 @@
     "price": 21.90
   },
   {
+    "model":"shop.Book",
+
     "author": "Albert Camus",
     "country": "Algeria, French Empire",
     "imageLink": "media/images/l-etranger.jpg",
@@ -182,6 +208,8 @@
     "price": 24.20
   },
   {
+    "model":"shop.Book",
+
     "author": "Paul Celan",
     "country": "Romania, France",
     "imageLink": "media/images/poems-paul-celan.jpg",
@@ -195,6 +223,8 @@
     "price": 16.70
   },
   {
+    "model":"shop.Book",
+
     "author": "Louis-Ferdinand C\u00e9line",
     "country": "France",
     "imageLink": "media/images/voyage-au-bout-de-la-nuit.jpg",
@@ -207,7 +237,9 @@
     "quantity": 50,
     "price": 23.40
   },
-  { 
+  {     
+    "model":"shop.Book",
+
     "author": "Miguel de Cervantes",
     "country": "Spain",
     "imageLink": "media/images/don-quijote-de-la-mancha.jpg",
@@ -221,6 +253,8 @@
     "price": 27.80
   },
   {
+    "model":"shop.Book",
+
     "author": "Geoffrey Chaucer",
     "country": "England",
     "imageLink": "media/images/the-canterbury-tales.jpg",
@@ -234,6 +268,8 @@
     "price": 22.60
   },
   {
+    "model":"shop.Book",
+
     "author": "Anton Chekhov",
     "country": "Russia",
     "imageLink": "media/images/stories-of-anton-chekhov.jpg",
@@ -246,7 +282,9 @@
     "quantity": 80,
     "price": 26.10
   },
-  {
+  {    
+    "model":"shop.Book",
+
     "author": "Joseph Conrad",
     "country": "United Kingdom",
     "imageLink": "media/images/nostromo.jpg",
@@ -260,6 +298,8 @@
     "price": 25.30
   },
   {
+    "model":"shop.Book",
+
     "author": "Charles Dickens",
     "country": "United Kingdom",
     "imageLink": "media/images/great-expectations.jpg",
@@ -273,6 +313,8 @@
     "price": 24.50
   },
   {
+    "model":"shop.Book",
+
     "author": "Denis Diderot",
     "country": "France",
     "imageLink": "media/images/jacques-the-fatalist.jpg",
@@ -286,6 +328,8 @@
     "price": 20.75
   },
   {
+    "model":"shop.Book",
+
     "author": "Alfred D\u00f6blin",
     "country": "Germany",
     "imageLink": "media/images/berlin-alexanderplatz.jpg",
@@ -299,6 +343,8 @@
     "price": 18.90
   },
   {
+    "model":"shop.Book",
+
     "author": "Fyodor Dostoevsky",
     "country": "Russia",
     "imageLink": "media/images/crime-and-punishment.jpg",
@@ -312,6 +358,8 @@
     "price": 27.30
   },
   {
+    "model":"shop.Book",
+
     "author": "Fyodor Dostoevsky",
     "country": "Russia",
     "imageLink": "media/images/the-idiot.jpg",
@@ -325,6 +373,8 @@
     "price": 25.80
   },
   {
+    "model":"shop.Book",
+
     "author": "Fyodor Dostoevsky",
     "country": "Russia",
     "imageLink": "media/images/the-possessed.jpg",
@@ -337,7 +387,9 @@
     "quantity": 60,
     "price": 22.40
   },
-  {
+  {    
+    "model":"shop.Book",
+
     "author": "Fyodor Dostoevsky",
     "country": "Russia",
     "imageLink": "media/images/the-brothers-karamazov.jpg",
@@ -351,6 +403,8 @@
     "price": 26.70
   },
   {
+    "model":"shop.Book",
+
     "author": "George Eliot",
     "country": "United Kingdom",
     "imageLink": "media/images/middlemarch.jpg",
@@ -364,6 +418,8 @@
     "price": 23.90
   },
   {
+    "model":"shop.Book",
+
     "author": "Ralph Ellison",
     "country": "United States",
     "imageLink": "media/images/invisible-man.jpg",
@@ -377,6 +433,8 @@
     "price": 26.50
   },
   {
+    "model":"shop.Book",
+
     "author": "Euripides",
     "country": "Greece",
     "imageLink": "media/images/medea.jpg",
@@ -390,6 +448,8 @@
     "price": 16.20
   },
   {
+    "model":"shop.Book",
+
     "author": "William Faulkner",
     "country": "United States",
     "imageLink": "media/images/absalom-absalom.jpg",
@@ -403,6 +463,8 @@
     "price": 22.80
   },
   {
+    "model":"shop.Book",
+
     "author": "William Faulkner",
     "country": "United States",
     "imageLink": "media/images/the-sound-and-the-fury.jpg",
@@ -416,6 +478,8 @@
     "price": 25.40
   },
   {
+    "model":"shop.Book",
+
     "author": "Gustave Flaubert",
     "country": "France",
     "imageLink": "media/images/madame-bovary.jpg",
@@ -429,6 +493,8 @@
     "price": 28.10
   },
   {
+    "model":"shop.Book",
+
     "author": "Gustave Flaubert",
     "country": "France",
     "imageLink": "media/images/l-education-sentimentale.jpg",
@@ -442,6 +508,8 @@
     "price": 26.90
   },  
   {
+    "model":"shop.Book",
+
     "author": "Federico Garc\u00eda Lorca",
     "country": "Spain",
     "imageLink": "media/images/gypsy-ballads.jpg",
@@ -455,6 +523,8 @@
     "price": 20.60
   },
   {
+    "model":"shop.Book",
+
     "author": "Gabriel Garc\u00eda M\u00e1rquez",
     "country": "Colombia",
     "imageLink": "media/images/one-hundred-years-of-solitude.jpg",
@@ -468,6 +538,8 @@
     "price": 26.20
   },
   {
+    "model":"shop.Book",
+
     "author": "Gabriel Garc\u00eda M\u00e1rquez",
     "country": "Colombia",
     "imageLink": "media/images/love-in-the-time-of-cholera.jpg",
@@ -480,7 +552,9 @@
     "quantity": 70,
     "price": 23.80
   },
-  {
+  {   
+     "model":"shop.Book",
+
     "author": "Johann Wolfgang von Goethe",
     "country": "Saxe-Weimar",
     "imageLink": "media/images/faust.jpg",
@@ -494,6 +568,8 @@
     "price": 19.70
   },
   {
+    "model":"shop.Book",
+
     "author": "Nikolai Gogol",
     "country": "Russia",
     "imageLink": "media/images/dead-souls.jpg",
@@ -507,6 +583,8 @@
     "price": 22.50
   },
   {
+    "model":"shop.Book",
+
     "author": "G\u00fcnter Grass",
     "country": "Germany",
     "imageLink": "media/images/the-tin-drum.jpg",
@@ -520,6 +598,8 @@
     "price": 21.90
   },
   {
+    "model":"shop.Book",
+
     "author": "João Guimarães Rosa",
     "country": "Brazil",
     "imageLink": "media/images/the-devil-to-pay-in-the-backlands.jpg",
@@ -533,6 +613,8 @@
     "price": 28.50
   },
   {
+    "model":"shop.Book",
+
     "author": "Knut Hamsun",
     "country": "Norway",
     "imageLink": "media/images/hunger.jpg",
@@ -546,6 +628,8 @@
     "price": 23.20
   },
   {
+    "model":"shop.Book",
+
     "author": "Ernest Hemingway",
     "country": "United States",
     "imageLink": "media/images/the-old-man-and-the-sea.jpg",
@@ -558,7 +642,9 @@
     "quantity": 85,
     "price": 26.80
   },
-  {
+  {    
+    "model":"shop.Book",
+
     "author": "Homer",
     "country": "Greece",
     "imageLink": "media/images/the-iliad-of-homer.jpg",
@@ -572,6 +658,8 @@
     "price": 29.40
   },
   {
+    "model":"shop.Book",
+
     "author": "Homer",
     "country": "Greece",
     "imageLink": "media/images/the-odyssey-of-homer.jpg",
@@ -585,6 +673,8 @@
     "price": 27.90
   },
   {
+    "model":"shop.Book",
+
     "author": "Henrik Ibsen",
     "country": "Norway",
     "imageLink": "media/images/a-Dolls-house.jpg",
@@ -598,6 +688,8 @@
     "price": 18.70
   },
   {
+    "model":"shop.Book",
+
     "author": "James Joyce",
     "country": "Irish Free State",
     "imageLink": "media/images/ulysses.jpg",
@@ -611,6 +703,8 @@
     "price": 24.50
   },
   {
+    "model":"shop.Book",
+
     "author": "Franz Kafka",
     "country": "Czechoslovakia",
     "imageLink": "media/images/stories-of-franz-kafka.jpg",
@@ -624,6 +718,8 @@
     "price": 22.60
   },
   {
+    "model":"shop.Book",
+
     "author": "Franz Kafka",
     "country": "Czechoslovakia",
     "imageLink": "media/images/the-trial.jpg",
@@ -637,6 +733,8 @@
     "price": 26.10
   },
   {
+    "model":"shop.Book",
+
     "author": "Franz Kafka",
     "country": "Czechoslovakia",
     "imageLink": "media/images/the-castle.jpg",
@@ -650,6 +748,8 @@
     "price": 25.20
   },
   {
+    "model":"shop.Book",
+
     "author": "Kālidāsa",
     "country": "India",
     "imageLink": "media/images/the-recognition-of-shakuntala.jpg",
@@ -663,6 +763,8 @@
     "price": 21.80
   },
   {
+    "model":"shop.Book",
+
     "author": "Yasunari Kawabata",
     "country": "Japan",
     "imageLink": "media/images/the-sound-of-the-mountain.jpg",
@@ -676,6 +778,8 @@
     "price": 26.50
   },
   {
+    "model":"shop.Book",
+
     "author": "Nikos Kazantzakis",
     "country": "Greece",
     "imageLink": "media/images/zorba-the-greek.jpg",
@@ -689,6 +793,8 @@
     "price": 28.90
   },
   {
+    "model":"shop.Book",
+
     "author": "D. H. Lawrence",
     "country": "United Kingdom",
     "imageLink": "media/images/sons-and-lovers.jpg",
@@ -702,6 +808,8 @@
     "price": 30.20
   },
   {
+    "model":"shop.Book",
+
     "author": "Halldór Laxness",
     "country": "Iceland",
     "imageLink": "media/images/independent-people.jpg",
@@ -715,6 +823,8 @@
     "price": 29.70
   },
   {
+    "model":"shop.Book",
+
     "author": "Giacomo Leopardi",
     "country": "Italy",
     "imageLink": "media/images/poems-giacomo-leopardi.jpg",
@@ -728,6 +838,8 @@
     "price": 17.50
   },
   {
+    "model":"shop.Book",
+
     "author": "Doris Lessing",
     "country": "United Kingdom",
     "imageLink": "media/images/the-golden-notebook.jpg",
@@ -741,6 +853,8 @@
     "price": 31.40
   },
   {
+    "model":"shop.Book",
+
     "author": "Astrid Lindgren",
     "country": "Sweden",
     "imageLink": "media/images/pippi-longstocking.jpg",
@@ -754,6 +868,8 @@
     "price": 33.00
   },
   {
+    "model":"shop.Book",
+
     "author": "Lu Xun",
     "country": "China",
     "imageLink": "media/images/diary-of-a-madman.jpg",
@@ -767,6 +883,8 @@
     "price": 27.80
   },
   {
+    "model":"shop.Book",
+
     "author": "Naguib Mahfouz",
     "country": "Egypt",
     "imageLink": "media/images/children-of-gebelawi.jpg",
@@ -780,6 +898,8 @@
     "price": 25.60
   },
   {
+    "model":"shop.Book",
+
     "author": "Thomas Mann",
     "country": "Germany",
     "imageLink": "media/images/buddenbrooks.jpg",
@@ -793,6 +913,8 @@
     "price": 33.50
   },
   {
+    "model":"shop.Book",
+
     "author": "Thomas Mann",
     "country": "Germany",
     "imageLink": "media/images/the-magic-mountain.jpg",
@@ -806,6 +928,8 @@
     "price": 38.20
   },
   {
+    "model":"shop.Book",
+
     "author": "Herman Melville",
     "country": "United States",
     "imageLink": "media/images/moby-dick.jpg",
@@ -819,6 +943,8 @@
     "price": 29.90
   },
   {
+    "model":"shop.Book",
+
     "author": "Michel de Montaigne",
     "country": "France",
     "imageLink": "media/images/essais.jpg",
@@ -832,6 +958,8 @@
     "price": 24.80
   },
   {
+    "model":"shop.Book",
+
     "author": "Elsa Morante",
     "country": "Italy",
     "imageLink": "media/images/history.jpg",
@@ -845,6 +973,8 @@
     "price": 27.60
   },
   {
+    "model":"shop.Book",
+
     "author": "Toni Morrison",
     "country": "United States",
     "imageLink": "media/images/beloved.jpg",
@@ -858,6 +988,8 @@
     "price": 31.90
   },
   {
+    "model":"shop.Book",
+
     "author": "Murasaki Shikibu",
     "country": "Japan",
     "imageLink": "media/images/the-tale-of-genji.jpg",
@@ -871,6 +1003,8 @@
     "price": 35.80
   },
   {
+    "model":"shop.Book",
+
     "author": "Robert Musil",
     "country": "Austria",
     "imageLink": "media/images/the-man-without-qualities.jpg",
@@ -884,6 +1018,8 @@
     "price": 36.50
   },
   {
+    "model":"shop.Book",
+
     "author": "Vladimir Nabokov",
     "country": "Russia/United States",
     "imageLink": "media/images/lolita.jpg",
@@ -897,6 +1033,8 @@
     "price": 34.20
   },
   {
+    "model":"shop.Book",
+
     "author": "George Orwell",
     "country": "United Kingdom",
     "imageLink": "media/images/nineteen-eighty-four.jpg",
@@ -910,6 +1048,8 @@
     "price": 32.40
   },
   {
+    "model":"shop.Book",
+
     "author": "Ovid",
     "country": "Roman Empire",
     "imageLink": "media/images/the-metamorphoses-of-ovid.jpg",
@@ -923,6 +1063,8 @@
     "price": 26.90
   },
   {
+    "model":"shop.Book",
+
     "author": "Fernando Pessoa",
     "country": "Portugal",
     "imageLink": "media/images/the-book-of-disquiet.jpg",
@@ -936,6 +1078,8 @@
     "price": 28.50
   },
   {
+    "model":"shop.Book",
+
     "author": "Edgar Allan Poe",
     "country": "United States",
     "imageLink": "media/images/tales-and-poems-of-edgar-allan-poe.jpg",
@@ -949,6 +1093,8 @@
     "price": 32.20
   },
   {
+    "model":"shop.Book",
+
     "author": "Marcel Proust",
     "country": "France",
     "imageLink": "media/images/a-la-recherche-du-temps-perdu.jpg",
@@ -962,6 +1108,8 @@
     "price": 45.80
   },
   {
+    "model":"shop.Book",
+
     "author": "Fran\u00e7ois Rabelais",
    "country": "France",
     "imageLink": "media/images/gargantua-and-pantagruel.jpg",
@@ -975,6 +1123,8 @@
     "price": 29.90
   },
   {
+    "model":"shop.Book",
+
     "author": "Juan Rulfo",
     "country": "Mexico",
     "imageLink": "media/images/pedro-paramo.jpg",
@@ -988,6 +1138,8 @@
     "price": 26.50
   },
   {
+    "model":"shop.Book",
+
     "author": "Rumi",
     "country": "Sultanate of Rum",
     "imageLink": "media/images/the-masnavi.jpg",
@@ -1001,6 +1153,8 @@
     "price": 33.70
   },
   {
+    "model":"shop.Book",
+
     "author": "Salman Rushdie",
     "country": "United Kingdom, India",
     "imageLink": "media/images/midnights-children.jpg",
@@ -1014,6 +1168,8 @@
     "price": 35.90
   },
   {
+    "model":"shop.Book",
+
     "author": "Saadi",
     "country": "Persia, Persian Empire",
     "imageLink": "media/images/bostan.jpg",
@@ -1027,6 +1183,8 @@
     "price": 30.20
   },
   {
+    "model":"shop.Book",
+
     "author": "Tayeb Salih",
     "country": "Sudan",
     "imageLink": "media/images/season-of-migration-to-the-north.jpg",
@@ -1040,6 +1198,8 @@
     "price": 28.60
   },
   {
+    "model":"shop.Book",
+
     "author": "Jos\u00e9 Saramago",
     "country": "Portugal",
     "imageLink": "media/images/blindness.jpg",
@@ -1053,6 +1213,8 @@
     "price": 21.90
   },
   {
+    "model":"shop.Book",
+
     "author": "William Shakespeare",
     "country": "England",
     "imageLink": "media/images/hamlet.jpg",
@@ -1066,6 +1228,8 @@
     "price": 24.50
   },
   {
+    "model":"shop.Book",
+
     "author": "William Shakespeare",
     "country": "England",
     "imageLink": "media/images/king-lear.jpg",
@@ -1079,6 +1243,8 @@
     "price": 23.70
   },
   {
+    "model":"shop.Book",
+
     "author": "William Shakespeare",
     "country": "England",
     "imageLink": "media/images/othello.jpg",
@@ -1092,6 +1258,8 @@
     "price": 22.80
   },
   {
+    "model":"shop.Book",
+
     "author": "Sophocles",
     "country": "Greece",
     "imageLink": "media/images/oedipus-the-king.jpg",
@@ -1105,6 +1273,8 @@
     "price": 19.90
   },
   {
+    "model":"shop.Book",
+
     "author": "Stendhal",
     "country": "France",
     "imageLink": "media/images/le-rouge-et-le-noir.jpg",
@@ -1118,6 +1288,8 @@
     "price": 20.50
   },
   {
+    "model":"shop.Book",
+
     "author": "Laurence Sterne",
     "country": "England",
     "imageLink": "media/images/the-life-and-opinions-of-tristram-shandy.jpg",
@@ -1131,6 +1303,8 @@
     "price": 20.70
   },
   {
+    "model":"shop.Book",
+
     "author": "Italo Svevo",
     "country": "Italy",
     "imageLink": "media/images/confessions-of-zeno.jpg",
@@ -1144,6 +1318,8 @@
     "price": 21.80
   },
   {
+    "model":"shop.Book",
+
     "author": "Jonathan Swift",
     "country": "Ireland",
     "imageLink": "media/images/gullivers-travels.jpg",
@@ -1157,6 +1333,8 @@
     "price": 18.90
   },
   {
+    "model":"shop.Book",
+
     "author": "Leo Tolstoy",
     "country": "Russia",
     "imageLink": "media/images/war-and-peace.jpg",
@@ -1170,6 +1348,8 @@
     "price": 27.80
   },
   {
+    "model":"shop.Book",
+
     "author": "Leo Tolstoy",
     "country": "Russia",
     "imageLink": "media/images/anna-karenina.jpg",
@@ -1183,6 +1363,8 @@
     "price": 25.50
   },
   {
+    "model":"shop.Book",
+
     "author": "Leo Tolstoy",
     "country": "Russia",
     "imageLink": "media/images/the-death-of-ivan-ilyich.jpg",
@@ -1196,6 +1378,8 @@
     "price": 18.90
   },
   {
+    "model":"shop.Book",
+
     "author": "Mark Twain",
     "country": "United States",
     "imageLink": "media/images/the-adventures-of-huckleberry-finn.jpg",
@@ -1209,6 +1393,8 @@
     "price": 22.80
   },
   {
+    "model":"shop.Book",
+
     "author": "Valmiki",
     "country": "India",
     "imageLink": "media/images/ramayana.jpg",
@@ -1222,6 +1408,8 @@
     "price": 17.90
   },
   {
+    "model":"shop.Book",
+
     "author": "Virgil",
     "country": "Roman Empire",
     "imageLink": "media/images/the-aeneid.jpg",
@@ -1235,6 +1423,8 @@
     "price": 20.50
    },
   {
+    "model":"shop.Book",
+
     "author": "Vyasa",
     "country": "India",
     "imageLink": "media/images/the-mahab-harata.jpg",
@@ -1248,6 +1438,8 @@
     "price": 23.70
   },
   {
+    "model":"shop.Book",
+
     "author": "Walt Whitman",
     "country": "United States",
     "imageLink": "media/images/leaves-of-grass.jpg",
@@ -1261,6 +1453,8 @@
     "price": 21.80
   },
   {
+    "model":"shop.Book",
+
     "author": "Virginia Woolf",
     "country": "United Kingdom",
     "imageLink": "media/images/mrs-dalloway.jpg",
@@ -1274,6 +1468,8 @@
     "price": 26.90
   },
   {
+    "model":"shop.Book",
+
     "author": "Virginia Woolf",
     "country": "United Kingdom",
     "imageLink": "media/images/to-the-lighthouse.jpg",
@@ -1287,6 +1483,8 @@
     "price": 24.50
   },
   {
+    "model":"shop.Book",
+
     "author": "Marguerite Yourcenar",
     "country": "France/Belgium",
     "imageLink": "media/images/memoirs-of-hadrian.jpg",
@@ -1299,4 +1497,4 @@
     "quantity": 80,
     "price": 27.50
   }
-  ]
+]
