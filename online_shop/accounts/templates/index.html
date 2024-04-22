@@ -1,18 +1,34 @@
 {% extends "base.html" %}
 {% load static %}
 
-
 {% block content %}
-{% if user.is_authenticated %}
-  <p class="card-text" style="font-size: larger;"><b>Welcome  {{ user.username }}!</b></p>
-  {% csrf_token %}
-  <button type="submit">Log out</button>
-{% else %}
-  <form>
-    <p class="card-text">Welcome to , new user. Please log in.</p>
-    <p><a href="{% url 'login' %}"><b> Log In </a>or <a href="{% url 'accounts:register'%}">Register</b></a></p>
-  </form>
-{% endif %}
-
-
+  {% if user.is_authenticated %}
+    <p class="card-text" style="font-size: larger;"><b>Welcome  {{ user.username }}!</b></p>
+    {% csrf_token %}
+    <button type="submit">Log out</button>
+  {% else %}
+    <div class="text-box">
+      <h1>Immerse yourself in the World of Words experience</h1>
+      <h2>Explore our extensive collection tailored just for you</h2>
+      <h3>Ready to find your next literary adventure?</h3>
+      <h4>Log in now to start browsing and ordering your favorite books.</h4>
+      <a href="{% url 'login' %}" class="btn-login">Log In</a> 
+      <span style="font-size: x-large;">or</span>
+      <a href="{% url 'accounts:register' %}" class="btn-register">Register</a>
+    </div>
+    <style>
+      /* Button styles */
+      .btn-login,
+      .btn-register {
+        display: inline-block;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        background-color: #007bff;  /* Example blue color */
+        color: #fff;  /* White text color */
+        text-decoration: none; /* Remove default underline */
+        margin-right: 10px; /* Add space between buttons */
+      }
+    </style>
+  {% endif %}
 {% endblock %}
