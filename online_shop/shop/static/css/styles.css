@@ -111,11 +111,10 @@ h1{
 
 }
 h2{
+    color: #f0e7e7;
     background-color: rgba(0, 0, 0, 0.616);
     position: center;
     background-position: 100%;
-
-    color: #f0e7e7;
 }
 h3{
     background-color: rgba(0, 0, 0, 0.616);
@@ -417,6 +416,10 @@ nav ul {
     height:auto;
     margin-left: auto; /* Align the logo to the end of the left side */
   }
+  .navbar-logo {
+    margin-left: 10px;
+    float:right;
+  }
   .star-rating {
     unicode-bidi: bidi-override;
     color: #f1c40f;
@@ -454,3 +457,23 @@ nav ul {
 .star-rating:hover .star:hover ~ .star:after {
     opacity: 1;
 }
+
+.shopping-cart-button {
+    margin-top: 15px;
+    background-color: #f5121200; /* White background */
+    color: #ddd;
+    border: none; /* Remove default border */
+    padding: 10px 15px; /* Add some padding */
+    font-size: 24px; /* Font size as specified */
+    cursor: pointer; /* Indicate clickable behavior */
+    line-height: 55px;
+  }.wishlist-button {
+    margin-top: 15px;
+    background-color: #f5121200; /* White background */
+    color: #ddd;
+    border: none; /* Remove default border */
+    padding: 10px 15px; /* Add some padding */
+    font-size: 24px; /* Font size as specified */
+    cursor: pointer; /* Indicate clickable behavior */
+    line-height: 55px;
+  }
