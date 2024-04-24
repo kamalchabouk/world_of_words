@@ -15,6 +15,7 @@ import json
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.views.generic.list import ListView
+from datetime import timedelta
 
 
 class BookListView(View):
@@ -209,6 +210,7 @@ class OrderView(View):
             messages.error(request, "Your cart is empty. Please add items to your cart before checkout.")
             return redirect('shop:books')
 
+        
         for book_id, item in cart.items():
             book = get_object_or_404(Book, pk=int(book_id))
             item_total = book.price * item['quantity']
@@ -234,6 +236,7 @@ class OrderView(View):
             total_price = 0
             orders = []
             payments = []
+            delivery_date = timezone.now() + timedelta(days=7)
             for book_id, item in cart.items():
                 book = get_object_or_404(Book, pk=int(book_id))
                 total_quantity += item['quantity']
@@ -248,6 +251,7 @@ class OrderView(View):
                     address=order_form.cleaned_data.get('address'),
                     quantity=item['quantity'],
                     amount=item['quantity'] * book.price,
+                    delivery_date=delivery_date,
                     paypal_address=order_form.cleaned_data.get('paypal_address'),
                     bank_name=order_form.cleaned_data.get('bank_name'),
                     account_number=order_form.cleaned_data.get('account_number'),
@@ -301,7 +305,13 @@ class OrderView(View):
             return render(request, 'view_cart.html', context)
     
 def order_confirmation(request):
-    return render(request, "thank_you.html")
+    # Retrieve the user's orders from the database
+    user_orders = Order.objects.filter(user=request.user)
+
+    context = {
+        'user_orders': user_orders
+    }
+    return render(request, "thank_you.html", context)
 
 
 def contacts(request):

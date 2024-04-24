@@ -1,21 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="text-box">
-        <h1>Order Placed Successfully</h1>
+    <div class="order-info"> 
+        <h2>Order Placed Successfully</h2>
         <p>Thank you for your order! Your order has been placed successfully.</p>
-        <h2>Order Information:</h2>
+        
+        <h2>Your Order Information</h2>
         <ul>
-            
             {% for order in user_orders %}
-            <h2>Order ID: {{order.order_id}}</h2>
-                <li>Book: {{ order.book.title }}</li>
-                <li>Quantity: {{ order.quantity }}</li>
-                <li>Amount: ${{ order.amount }}</li>
-                <li>Address: {{ order.address }}</li>
-                <li>Payment Option: {{ order.payment_type }}</li>
-                <li>Delivery Date: {{ order.order_date }}</li>
-
-
+                <h2>Order ID:</strong> {{ order.order_id }}</h2>
+                <p><strong>Book Title:</strong> {{ order.book.title }}</p>
+                <p><strong>Author:</strong> {{ order.book.author }}</p>
+                <p><strong>Quantity:</strong> {{ order.quantity }}</p>
+                <p><strong>Amount:</strong> ${{ order.amount }}</p>
+                <p><strong>Address:</strong> {{ order.address }}</p>
+                <p><strong>Payment Option:</strong> {{ order.payment_type }}</p>
+                <p><strong>Delivery Date:</strong> {{ order.delivery_date|date:"F j, Y" }}</p>
             {% endfor %}
         </ul>
     </div>

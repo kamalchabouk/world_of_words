@@ -197,9 +197,7 @@ h6{
     transition: color 0.1s ease-in; /* Smooth transition effect for color change */
     font-family: fantasy;
 }
-/* .content1 {
-    padding-top: 6500px; /* Adjust this value to match the height of your navbar */
-} */
+
 .genre-list a:hover {
     color: #225b97; /* Change link color on hover */
 }
@@ -383,6 +381,20 @@ nav ul {
     width: 80px; /* Adjust the width as needed */
     height: auto;
   }
+
+  .order-info {
+    border: 3px solid #0509ec; /* Blue border */
+    padding: 15px; /* Add padding inside the box */
+    margin: 0 auto; /* Center the box horizontally */
+    width: 80%; /* Set a width for the box (adjust as needed) */
+    background-color: black; /* Black background */
+    color: white; /* White text color */
+    font-family: fantasy;
+    display: flex;
+    flex-direction: column; /* Arrange children vertically */
+    align-items: center; /* Center children horizontally */
+    justify-content: center; /* Center children vertically */
+}
   .cart-container {
     position: fixed;
     top: 70px; /* Adjust as needed to create padding from the navbar */
