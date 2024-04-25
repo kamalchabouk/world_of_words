@@ -309,7 +309,8 @@ def order_confirmation(request):
     user_orders = Order.objects.filter(user=request.user)
 
     context = {
-        'user_orders': user_orders
+        'user_orders': user_orders,
+        'delivery_date': user_orders[0].delivery_date 
     }
     return render(request, "thank_you.html", context)
 

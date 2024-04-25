@@ -7,14 +7,17 @@
         <h2>Your Order Information</h2>
         <ul>
             {% for order in user_orders %}
-                <h2>Order ID:</strong> {{ order.order_id }}</h2>
+                <p><strong>Order ID:</strong> {{ order.order_id }}</p>
                 <p><strong>Book Title:</strong> {{ order.book.title }}</p>
                 <p><strong>Author:</strong> {{ order.book.author }}</p>
                 <p><strong>Quantity:</strong> {{ order.quantity }}</p>
                 <p><strong>Amount:</strong> ${{ order.amount }}</p>
                 <p><strong>Address:</strong> {{ order.address }}</p>
                 <p><strong>Payment Option:</strong> {{ order.payment_type }}</p>
+                <p><strong>Order Date:</strong> {{ order.order_date}}</p>
                 <p><strong>Delivery Date:</strong> {{ order.delivery_date|date:"F j, Y" }}</p>
+                <p><strong>You will receive an email with your order and shipping information.</strong></p>
+
             {% endfor %}
         </ul>
     </div>
